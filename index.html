@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U8 Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="video.js"></script>
+    <script>
+        function getParam ( sname )
+        {
+          var params = location.search.substr(location.search.indexOf("?")+1);
+          var sval =  params.replace("url=", "");
+          
+          return sval;
+        }
+        var sv = getParam("sv");
+        </script>
+
+</head>
+
+<body onload="init()">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script>$(document).ready(function() {
+      $("img").on("contextmenu",function(){
+         return false;
+      }); 
+  }); </script>
+<div id="text"> www.kasintvlivecricket.com</div>
+</div>
+<div id='tlgrm'>
+<div id='tlgrm_message'>
+<button class='clossalert' onclick='document.getElementById(&quot;tlgrm&quot;).style.display=&quot;none&quot;;'>X</button>
+<p><a href='https://t.me/kasintvlivecricket' rel='nofollow' role='button' target='_blank'>
+Join Our Telegram Group for Updates
+</a></p>
+</div>
+</div>
+
+<div id="loading" class="loading">
+  <div class="loading-text">
+  <span class="loading-text-words">K</span>
+  <span class="loading-text-words">A</span>
+  <span class="loading-text-words">S</span>
+  <span class="loading-text-words">I</span>
+  <span class="loading-text-words">N</span>
+  <span class="loading-text-words">-</span>
+  <span class="loading-text-words">T</span>
+  <span class="loading-text-words">V</span>
+  </div>
+  </div>
+   <script type="text/javascript">
+    jwplayer.key = 'llGBYdpkLfLKprgWX6FQqW5IbQ3t+5LNQh4r/BATHZQ6KjcRf30T3o2GuWNunabb';
+</script>
+<div id="jwPlayer"></div>
+<div id="jwplayers"></div>
+<script>
+    // Get the `src` parameter from the URL.
+    const urlParams = new URLSearchParams(window.location.search);
+    const srcParam = urlParams.get('src');
+    const videoUrl = urlParams.get('url');
+    
+    if (srcParam) {
+      // Show the iframe player
+      document.getElementById('iframe').src = srcParam;
+      document.getElementById('jwPlayer').style.display = 'none';
+    } else if (videoUrl) {
+      // Show the JW Player
+      jwplayer("jwPlayer").setup({
+        file: videoUrl,
+      });
+      document.getElementById('iframe').style.display = 'none';
+    }
+  </script>
+<script>
+  setTimeout(videovisible, 2000)
+
+  function videovisible() {
+      document.getElementById('loading').style.display = 'none'
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+      const e = document.querySelector("video"),
+          n = e.getElementsByTagName("source")[0].src,
+          o = {};
+      if (Hls.isSupported()) {
+          var config = {
+              maxMaxBufferLength: 100,
+          };
+          const t = new Hls(config);
+          t.loadSource(n), t.on(Hls.Events.MANIFEST_PARSED, function(n, l) {
+              const s = t.levels.map(e => e.height);
+              o.quality = {
+                  default: s[0],
+                  options: s,
+                  forced: !0,
+                  onChange: e => (function(e) {
+                      window.hls.levels.forEach((n, o) => {
+                          n.height === e && (window.hls.currentLevel = o)
+                      })
+                  })(e)
+              };
+              new Plyr(e, o)
+          }), t.attachMedia(e), window.hls = t
+      } else {
+          new Plyr(e, o)
+      }
+  });
+</script>
+    
+
+    
+</body>
+</html>
