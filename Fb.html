@@ -1,1 +1,83 @@
-<iframe allowfullscreen="true" class="video" frameborder="no" height="600" id="stream" name="search_iframe" scrolling="yes" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FGoCricketGoCanada%2Fvideos%2F1653256008813755%2F&show_text=false&width=560&t=0"></iframe>
+<html>
+
+
+  
+  
+ 
+  <script>
+    // Function to shuffle an array randomly
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+    // Function to refresh the page at a fixed interval
+    function refreshPage() {
+      var refreshInterval = 250000;
+      setInterval(function () {
+        location.reload();
+      }, refreshInterval);
+    }
+    // Function to perform the link loop
+    function executeLoop() {
+      var links = [
+        '//nukeluck.net/4/5594745',
+        '//vasteeds.net/4/5846274',
+        '//somethingrealisticzero.com/cubzc4t543?key=7f6d65bb5c96e7b9357db2718ed4c7f1',
+        '//whulsaux.com/4/5846274',
+        '//ptugnoaw.net/4/6999684',
+        '//soocaips.com/4/6999685',
+ '//gloacmug.net/4/5594745',
+        '//almstda.tv/4/6999684',
+        '//soocaips.com/4/6999685',
+      ];
+      // Shuffle the array randomly
+      shuffleArray(links);
+      var currentIndex = 0;
+      function openLink() {
+        var link = links[currentIndex];
+        // Display the link in the modal
+        openModalWithLink(link);
+        
+        var interval = Math.floor(Math.random() * (30000 - 20000 + 1) + 20000);
+        // Close the modal after the specified interval
+        setTimeout(function () {
+          closeModal();
+          // Move to the next link
+          currentIndex = (currentIndex + 1) % links.length;
+          // Call openLink again with the updated index
+          openLink();
+        }, interval);
+      }
+      // Initial execution
+      openLink();
+    }
+    // Function to open the modal with a given link
+    function openModalWithLink(link) {
+      document.getElementById('modalIframe').src = link;
+      // Explicitly load the iframe after setting the source
+      document.getElementById('modalIframe').onload = function () {
+        document.getElementById('myModal').style.display = 'block';
+      };
+    }
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+    // Initial execution
+    window.onload = function () {
+      refreshPage(); // Start the page refresh
+      executeLoop(); // Start the link loop
+    };
+  </script>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" style="display: none;">
+  <div class="modal-content">
+    <span onclick="closeModal()" style="cursor: pointer; float: right;">×</span>
+    <!-- Content of the modal -->
+    <iframe id="modalIframe" src="" style="border: none; height: 400px; width: 100%;"></iframe>
+  </div>
+</div>
+</html>
