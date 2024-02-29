@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Player</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/clappr/latest/clappr.css">
+    <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+
+    <style type="text/css">
+        #live-player {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: black;
+        }
+        .dvr-player-wrapper {
+            background-color: black;
+        }
+        [data-watermark] {
+            min-width: 100px;
+            max-width: 350px;
+            width: 70%;
+            top: 0;
+            right: -85px;
+        }
+    </style>
+</head>
+<body>
+    <div id="live-player"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            if (window.self !== window.top) {
+                fetch('channels.json')
+                .then(response => response.json())
+                .then(channels => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const channelName = urlParams.get('tv');
+                    const tvSource = channels[channelName];
+                    if (tvSource) {
+                        const player = new Clappr.Player({
+                            source: tvSource,
+                            parentId: '#live-player',
+                            width: '100%',
+                            height: '100%',
+                            autoPlayVisibleOnly: 'partial',
+                            watermark: 'https://i.ibb.co/VMwb7DY/20231223-092825-0000.png',
+                            position: 'top-right',
+                            autoPlay: true,
+                            plugins: [HlsjsPlayback, LevelSelector],
+                        });
+                    } else {
+                        console.error("TV source not provided in the URL parameters or invalid channel name.");
+                    }
+                })
+                .catch(error => console.error('Error fetching channels:', error));
+            } else {
+                document.body.innerHTML = "<h1>Access Denied</h1>";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<script>
+  {
+  "channel1": "https://sports.yunyingtiandi.com/live/m33058771/playlist.m3u8",
+  "channel2": "http://tvcdn.hoichoi24.com:8083/1102/tracks-v1a1/mono.m3u8?token=d9f369cdffce93b93cfa73a95fe352e8978ed906-802f2a999f60f2b7a5c014fe8bf8688a-1709127812-1709124212",
+  "channel3": "http://tvcdn.hoichoi24.com:8083/1101/tracks-v1a1/mono.m3u8?token=3baa65fbf29cecaa2d814566d319d093e07d623c-89a0a1ffd65bdaa5db11bf27f7b58742-1709131437-1709127837",
+  "channel4": "http://176.119.29.52/live/00:1A:79:17:BD:79/8B83484C00326/48010.m3u8",
+  "channel5": "https://video-weaver.jfk04.hls.live-video.net/v1/playlist/CrkFflkEIiCof6bD8M-w1qWDwaS1egJ0wJm9kLhT8Dgq98tCSxvS5l3Xd50YLPvhWo02m8oY-J38YabzlTF5mJUB0DDsREHZQZsmd98GSdNZufjwbwX0Lz15KrLq2T5w9Prgj16csbgz-YPgbIFe8B_Y8ZFbWog6RjlWErAIVxx5oiHXx_qLLt4AKAy83lzPLTbOab6WPnc5anole88TQsNSOOE_W6q17HGP5gWYk0rgHm48C3LyAe9klw1_Cz86TF6WL_Eo4ylU69jlQ8bn3KRqPGah-xgxuoegO7rzGzu8FGGUx-1QnL4cWRE7FDKTnKjs36bEoJD_9YewrCJYKsyOTzrY7CsMA01g3e7hL2Mu8sdxBawuzyXzYJpEkwwtmAazrlNR7BNH5hpu1bOWcB3C6a_XOF6fbJnOLA4erUEOCSctgr3KNH-kfds6wdTeV4vxKTAyLHB32kPP4ni77APRnJOspIfDT-NGnm20JNblzdOTHTfuk5snBRZituND-gQjKHlYBOoKz-vlK32Gh5cZ9WGqG6_LVAREZthhgYuOGO508_M7M1cz40eMDoca0vgJ0h4lQVOoBtBOdkZhNGRlRck-In6sDjI3hWmpDg38wMyqLIN5D9DE3DxmWiz0_mros5LLr2bYmq4J9mhDNB8OAM-bz8AhgNUcfo3pgg-8wgs3vUS-0w4S-mYpb4Z-Sjs5wMJ_70BxAmaLjiPakN6_gQzY6XGWb9xLySDBIg_ssPNTL-yEOZriCdJFBsANNK2f5xsuIIdvVE8FcXtKFHlvZ1jrbuOR1zoQdbDXZvqQ-noksH4a7OUU0P3bzdp3AjvMVPlGG8f-8rQ6PUjKpQApmVMfnwAwBb3guKSpS2dU-cEyNdPhSuuk9eCoIcN1ifo_GOBy5dpADmy0gIitnZ2NWUQVcKSkD7r5fhoMXjkJFwc9RSDzPLk0IAEqCXVzLWVhc3QtMTCfBw.m3u8",
+  "channel6": "http://103.2.153.38/trans1sd/smil:tensports5.smil/chunklist.m3u8",
+  "channel7": "https://corsproxy.io/?http://tgaadi-web.tech/play.php?id=18468&e=.m3u8",
+  "channel8": "https://corsproxy.io/?http://tgaadi-web.tech/Tg_aadi.php?id=10662&e=.m3u8",
+  "channel9": "https://corsproxy.io/?http://tgaadi-web.tech/play.php?id=23817&e=.m3u8",
+  "channel10": "https://corsproxy.org/?https://starplay2.netlify.app/m3u%2Fdiscoverybengali.m3u8"
+}
+</script>
