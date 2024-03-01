@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>$(document).ready(function() {
+    $("img").on("contextmenu",function(){
+       return false;
+    }); 
+}); </script>
+<style>
+#player-container{position:relative;overflow:hidden;padding-top:56.25%}#player-iframe{position:absolute;top:0;left:0;width:100%;height:100vh;border:0}</style>
+<style>
+  #player-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    overflow: hidden
+  }
+
+  #iframe-iframe,
+  #jwPlayer {
+    height: 100vh !important;
+    padding: 0;
+    margin: 0
+  }
+
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0
+  }
+
+  #container {
+    position: absolute;
+    text-align: center
+  }
+
+  video {
+    outline: 0
+  }
+
+  #text {
+    position: fixed;
+    border: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    bottom: 50px;
+    text-align: center;
+    font-family: tahoma;
+    font-size: 20px;
+    z-index: 9999
+  }
+
+</style>
+
+       
+<style>
+.logo img {
+    width: 200px;
+    height: 70px;
+   float: right;
+}
+</style>
+
+
+<style>
+  #tlgrm {
+                position: fixed;
+                z-index: 99999999;
+                left : 25px;
+                text-align: center;
+                border-radius: 50%;
+                cursor: pointer;
+                bottom: 67px;
+            }
+
+            #tlgrm_message:after,#tlgrm_message:before {
+                content: &#39; &#39;;
+                position: absolute;
+                bottom: -21px;
+                left: 23px;
+                border-style: solid;
+                height: 0;
+                width: 0;
+                border-width: 10px;
+                border-color: transparent;
+            }
+
+            #tlgrm_message p {
+                margin: 0px 0;
+                font-size: 12px;
+                color: #8e8e8e;
+                text-align: left ;
+            }
+
+            .clossalert {
+                position: absolute;
+                left : 0px;
+                font-size: 14px;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                top: -17px;
+                border: unset!important;
+              background-color: red;
+              color: white;
+            }
+
+            #tlgrm_message a {
+                margin: 6px 4px;
+                font-weight: bold;
+                color: #FFF;
+                border-radius: 6px;
+                display: inline-block;
+                padding: 10px;
+                text-decoration: none;
+               background: #0088cc;
+            }
+			
+</style>
+
+
+    
+<title>KaSin TV</title>
+</head>
+<body>
+<div id="player-container">
+<iframe id="player-iframe" allowfullscreen></iframe>
+<div id="text">www.kasintv.com</div>
+  </div>
+<div id='tlgrm'>
+<div id='tlgrm_message'>
+<button class='clossalert' onclick='document.getElementById(&quot;tlgrm&quot;).style.display=&quot;none&quot;;'>X</button>
+<p><a href='https://t.me/kasintvlivecricket' rel='nofollow' role='button' target='_blank'>
+Join Our Telegram Group for Updates
+</a></p>
+</div>
+  </div>
+
+</div>
+
+    
+<script>
+    // Get the Custom_ID from the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const customID = urlParams.get('kasintv');
+
+    // Replace (Custom_ID) in the original URL with the custom ID
+    const originalURL = `https://bigcast.xyz/embed.php?v=${customID}`;
+
+    // Set the iframe source to the modified URL
+    document.getElementById('player-iframe').src = originalURL;
+</script>
+</body>
+</html>
