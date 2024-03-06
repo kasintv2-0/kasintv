@@ -11,7 +11,7 @@
     </script>
    
     <meta name="referrer" content="no-referrer">
-    <script src="https://api.sting-web.com/HLS-Player/kaltura.js"></script>
+    <script src="https://pc.sandipsitaula2023.com.np/video.js"></script>
     <body onload="init()">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script>$(document).ready(function() {
@@ -25,8 +25,8 @@
  <iframe id="iframe" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="5" height="100%" marginheight="0" marginwidth="0" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" src width="100%"></iframe> 
 
         
-<div id="kalturaPlayer"></div>
-<div id="kalturaPlayer"></div>
+<div id="jwPlayer"></div>
+<div id="jwplayers"></div>
 <script>
     // Get the `src` parameter from the URL.
     const urlParams = new URLSearchParams(window.location.search);
@@ -36,10 +36,10 @@
     if (srcParam) {
       // Show the iframe player
       document.getElementById('iframe').src = srcParam;
-      document.getElementById('kalturaPlayer').style.display = 'none';
+      document.getElementById('jwPlayer').style.display = 'none';
     } else if (videoUrl) {
       // Show the JW Player
-      jwplayer("kalturaPlayer").setup({
+      jwplayer("jwPlayer").setup({
         file: videoUrl,
       });
       document.getElementById('iframe').style.display = 'none';
