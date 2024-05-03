@@ -1,117 +1,72 @@
-<!--Don't Copy this Please-->
 <script>
-    function getParam ( sname )
-    {
-      var params = location.search.substr(location.search.indexOf("?")+1);
-      var sval =  params.replace("url=", "");
-      
-      return sval;
-    }
-    var sv = getParam("sv");
-    </script>
-   
-    <meta name="referrer" content="no-referrer">
-    <script src="https://pc.sandipsitaula2023.com.np/M3U8%20Player/video.js"></script>
-    <body onload="init()">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script>$(document).ready(function() {
-      $("img").on("contextmenu",function(){
-         return false;
-      }); 
-  }); </script>
-<script data-cfasync='false' src='//wwr.hwieos.com/?tag=9359a595'></script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("url=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+<title> KaSin TV Player </title>
+<meta name="referrer" content="no-referrer">
+<style>html,body{margin:0;padding:0;background:#000;;}</style>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<body onload="init()">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<!-- Google tag (gtag.js) -->
 
-        
- <iframe id="iframe" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="5" height="100%" marginheight="0" marginwidth="0" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" src width="100%"></iframe> 
 
-        
-<div id="jwPlayer"></div>
-<div id="jwplayers"></div>
 <script>
-    // Get the `src` parameter from the URL.
-    const urlParams = new URLSearchParams(window.location.search);
-    const srcParam = urlParams.get('tv');
-    const videoUrl = urlParams.get('kasintv');
-    
-    if (srcParam) {
-      // Show the iframe player
-      document.getElementById('iframe').src = srcParam;
-      document.getElementById('jwPlayer').style.display = 'none';
-    } else if (videoUrl) {
-      // Show the JW Player
-      jwplayer("jwPlayer").setup({
-        file: videoUrl,
-      });
-      document.getElementById('iframe').style.display = 'none';
-    }
-  </script> 
-    
-    </div>
-<div id="text">www.kasintv.com </div>
+	 if (navigator.userAgent.match(/Android/i) ||  navigator.userAgent.match(/webOS/i) ||	 navigator.userAgent.match(/iPhone/i) ||     navigator.userAgent.match(/iPod/i) ||          navigator.userAgent.match(/iPad/i) ||		 navigator.userAgent.match(/Mobile Safari/i) ||            navigator.userAgent.match(/Blackberry/i)){
+				document.write("\<video style=\"z-index:2;width:100%;height:100%;background-color:#000;-o-object-fit:fill;object-fit:fill\"  controls=\"controls\" autoplay=\"false\" preload=\"auto\" height=\"auto\" src=\""+sv+"\"\>\<\/video\>");
+			 }else {
+				 
+				 document.write('<video id="streaming" autoplay  preload="auto" height="100%" width="100%" class="video-js" controls data-setup="{&quot;language&quot;: &quot;vi&quot;}"></video>');
 
+		function play(cid) {
+				src = cid;
+			player = videojs("streaming");
+			player.ready(function() {
+				player.src({
+					src: src,
+					type: "application/x-mpegURL",
+					autoplay: "false",  
+					image: "https://content.jwplatform.com/thumbs/xJ7Wcodt-720.jpg",
 
+				});
+			});
 
-        
-    <style>
-        #container {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          background: #8a0000;
-          color: #fff;
-          overflow: hidden;
-        }
-        #iframe, #jwPlayer {
-          height: 100vh !important;
-          padding: 0;
-          margin: 0;
-        }
-        body {
-          height: 100vh;
-          margin: 0;
-          padding: 0;
-        }
-        #container {
-          position: absolute;
-          text-align: center;
-        }
-        video {
-          outline: 0;
-        }
-        #text {
-          position: fixed;
-          border: 0;
-          left: 0;
-          width: 100%;
-          color: #fff;
-          bottom: 50px;
-          text-align: center;
-          font-family: tahoma;
-          font-size: 20px;
-          z-index: 9999;
-        }
-      </style>
-    </div>
+			//player.play();
 
-        
+		}
 
-    <style>
-        .video-js {
-            width: 100%;
-            height: 100%;
-        }
-        body {
-            text-align: center;
-            margin: 0px;
-        }
-        #videojs {
-            width: 100%;
-            height: 100%;
-        }.streaming-dimensions{
-                    width: 100% !important;
-            height: 100% !important;
-        }
+		play(sv);
+			 }
+	</script>
+<a href="https://www.kasintv.com" target="_blank">
+KaSin TV
+</a>
+
+</div>
+<style>
+	.video-js {
+		width: 100%;
+		height: 100%;
+	}
+	body {
+		text-align: center;
+		margin: 0px;
+	}
+	#videojs {
+		width: 100%;
+		height: 100%;
+	}.streaming-dimensions{
+				width: 100% !important;
+		height: 100% !important;
+	}
 
         #tme{position:fixed;z-index:99999999;bottom:50px;right:25px;width:48px;height:48px;text-align:center;border-radius:50%;cursor:pointer}
 #tme_message{position:absolute;bottom:62px;right:-10px;width:250px;padding:10px;background:#fff;border-radius:4px;box-shadow:0 2px 5px rgb(0 0 0);transition:opacity .5s ease-in}#tme_message:after,#tme_message:before{content:'';position:absolute;bottom:-21px;right:23px;height:0;width:0;border:10px solid transparent}
@@ -134,10 +89,6 @@
 </linearGradient>
 </defs>
 </svg>
-  
-</span>  
 
 
-
-    </body>
-</html>
+</body>
