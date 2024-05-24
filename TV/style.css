@@ -1,0 +1,230 @@
+<!--event css-->
+.event {
+    background-color: #d9d9d9;
+    border: 2px solid #333333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.event a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.event img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.event p {
+    margin: 0;
+    font-weight: bold;
+    color: #000;
+  font-family: system-ui;
+}
+
+<!--end-->
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+}
+  a:hover {
+    color: #ffffff;
+}
+  .col-md-7 {
+    flex: auto;
+    width: 100%;
+}
+  @media (min-width:500px){.container,.container-sm{max-width:540px}}@media (min-width:1000px){.container,.container-md,.container-sm{max-width:720px}}@media (min-width:992px){.container,.container-lg,.container-md,.container-sm{max-width:960px}}@media (min-width:1200px){.container,.container-lg,.container-md,.container-sm,.container-xl{max-width:1140px}}@media (min-width:1400px){.container,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl{max-width:1320px}}
+  
+  .fs-2 {
+    font-size: calc(1.325rem + .9vw)!important;
+    display: none;
+}
+    .grid-post, #feeds-posts {
+    padding: 12px 12px 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    display: none;
+}
+    
+  
+  .group-join {
+    text-align: center;
+    display: block;
+    clear: both;
+    margin-bottom: 5px;
+  
+}
+
+.join-whatsapp {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background: #f0f8ff;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    justify-content: space-between;
+}
+
+.join-whatsapp a {
+    text-decoration: none;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.join-whatsapp span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.join-whatsapp:first-child {
+    animation: blink 1s infinite;
+}
+
+.join-whatsapp:last-child {
+    animation: blink2 1s infinite;
+}
+
+/* Keyframes for blink animation */
+@keyframes blink {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #25d366;
+        background: #f0f8ff;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes blink2 {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #005C8A;
+        background: #f0f8ff;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+.wobble-button {
+    background: #25d366;
+    color: white;
+    padding: 2px 15px;
+    border-radius: 100px;
+}
+  
+
+.btn:hover,.btn:focus,.btn:active,.btn:active:focus,
+.btn:active:hover{background-color:#510366!important;}
+.btn:active{box-shadow:none!important;transform:translateY(1px)!important;transition:all .15s ease}
+.btn:not([data-action]):hover{box-shadow:2px 2px 6px rgba(0,0,0,.4);transform:translateY(-1px);
+-webkit-transform:translateY(-1px)}
+.btn:disabled,.btn:disabled:hover,
+.btn:disabled:focus,
+.btn:disabled:active{background-color:#344675;border-color:#344675}
+.btn:hover,.btn:focus{opacity:1;filter:alpha(opacity=100);outline:0!important}
+.btn:active{box-shadow:none;outline:0!important}
+.btn-sm{font-size:.875rem;border-radius:3px;padding:5px 15px}
+#stream{border-radius:5px 5px 0 0;text-align:center;height:600px;width:100%}
+.server-name {
+	margin: 0 -3px 5px;
+	display: flex !important;
+	justify-content: space-between !important;
+	padding: 0;
+}
+ .server-name li{width:100%;margin:0 3px;font-size:15px;margin: 4px 2px;}
+@media screen and (max-width:640px){#stream{width:100%;height:330px}
+  
+.server-name{width:100%;height:100%;direction:rtl;text-align:center;overflow:auto;overflow-y:auto;overflow-y:auto;overflow-y:hidden;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;margin:0 auto}
+  
+.server-name li{display:inline-block;vertical-align:middle;background-image:none;white-space:nowrap;-moz-user-select:none;cursor:pointer;position:relative;margin:0 3px 0}}
+@media screen and (max-width:480px){#stream{width:100%;height:260px}}
+    
+.kasintvEmbed{background:#000;padding:5px;overflow:hidden;max-width:100%;margin:0 auto}
+.server-name .btn.active{background:#a0002a!important}
+.server-name li:nth-child(3) .btn.active,.server-name li:nth-child(4) .btn.active{background:#0035b3!important}
+#controls{margin-bottom:0}
+    
+.btn{border:none;position:relative;overflow:hidden;background-size:210% 210%;background-position:top right;background-color:#cb0441;box-shadow:none;color:#fff !important;font-weight:600;padding:10px 15px;line-height:1.35em;border-radius:.20rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;text-align:center;user-select:none;cursor:pointer;display:block; }
+.btn:hover{color:#020203;text-decoration:none}
+    
+/* CSS */
+.button-1 {
+  background: #4f0770;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,NotoColorEmoji,&quot;Noto Color Emoji&quot;,&quot;Segoe UI Symbol&quot;,&quot;Android Emoji&quot;,EmojiSymbols,-apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,&quot;Noto Sans&quot;,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-contant;
+  word-break: break-word;
+  border: 0;
+  margin:0.100pc;
+} 
+   .disclaimer {
+    background: #fff3cd;
+}
+
+      
+  
+
+ /* Style for the list item */
+li {
+  list-style: none; /* Remove default list styles */
+  margin-bottom: 10px; /* Add some spacing between list items */
+}
+
+/* Style for the YouTubeUrl container */
+.YouTubeUrl {
+  border: 1px solid #ccc; /* Add a border to the container */
+  padding: 10px; /* Add some padding to the container */
+  display: flex; /* Use flexbox to control the layout */
+  align-items: center; /* Align items vertically in the center */
+  background-color:#fff;
+}
+
+/* Style for the YouTube play button */
+.YouTubeUrl svg {
+  width: 1.43em; /* Set the width of the SVG */
+  height: 1em; /* Set the height of the SVG */
+  fill: red; /* Set the fill color of the SVG */
+  margin-right: 10px; /* Add some spacing to the right of the SVG */
+}
+
+/* Style for the text &quot;Subscribe This Channel&quot; */
+.YouTubeUrlText {
+  font-weight: bold; /* Make the text bold */
+  color: #000; /* Set the text color */
+  margin-right: 10px; /* Add some spacing to the right of the text */
+  text-decoration: none; /* Remove underline */
+  font-family: system-ui;
+}
+
+
+
+
+
