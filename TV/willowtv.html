@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Live</title>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-    <style>
-        .unmute {
-           
-            border: 2px solid #c2c2c2;
-            padding: 5px;
-            color: #ddd;
-            width: 200px;
-        }
-    </style>
-</head>
-
-<body style="margin: 0px;" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-    <div id="player-wrapper"></div>
+   <div id="player-wrapper"></div>
     <script>
         var playerElement = document.getElementById("player-wrapper");
         var player = new Clappr.Player({
@@ -32,17 +16,6 @@
         player.play();
         play();
     </script>
-    <script>
-        function WSUnmute() {
-            document.getElementById("UnMutePlayer").style.display = "none";
-            player.setVolume(70);
-        }
-    </script>
-    <div id="UnMutePlayer" style="position: absolute; left: 20px; top: 15px; width: 250px; height: 45px;">
-        <button class="UnMute" onclick="WSUnmute()" style=" background:blue; border: 4px solid #12DB03; color: white;">
-            CLICK UNMUTE STREAM
-        </button>
-    </div>
-</body>
+  
 
-</html>
+
