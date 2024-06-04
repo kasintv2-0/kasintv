@@ -1,2 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+    <style>
+        .unmute {
+            background: transparent;
+            border: 2px solid #c2c2c2;
+            padding: 5px;
+            color: #ddd;
+            width: 200px;
+        }
+    </style>
+</head>
 
-<iframe src="https://embedstreams.me/t20/bangladesh-vs-india-stream-1" width="100%" height="100%" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;" allowtransparency="true" id="thatframe"> </iframe>
+<body style="margin: 0px; background: #c60c20;" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <div id="player-wrapper"></div>
+    <script>
+        var playerElement = document.getElementById("player-wrapper");
+        var player = new Clappr.Player({
+            source: 'https://karostream.tulix.tv/WillowTvHighBitrate/index.m3u8',
+            mimeType: 'application/vnd.apple.mpegurl',
+            mute: true,
+            autoPlay: false,
+            height: '100%',
+            width: '100%',
+        });
+        player.attachTo(playerElement);
+        player.play();
+        play();
+    </script>
+    <script>
+        function WSUnmute() {
+            document.getElementById("UnMutePlayer").style.display = "none";
+            player.setVolume(70);
+        }
+    </script>
+    <div id="UnMutePlayer" style="position: absolute; left: 20px; top: 15px; width: 250px; height: 45px;">
+        <button class="UnMute" onclick="WSUnmute()" style="background: red; border: 4px solid #12DB03; color: white;">
+            CLICK UNMUTE STREAM
+        </button>
+    </div>
+</body>
+
+</html>
