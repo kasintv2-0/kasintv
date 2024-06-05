@@ -10,8 +10,10 @@ var sv = getParam("sv");
 </script>
 <meta name="referrer" content="no-referrer">
 <style>html,body{margin:0;padding:0;background:#000;;}</style>
- <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js" type="text/javascript"></script>
+<link href="https://pc.sandipsitaula2023.com.np/Player/video-js.min.css" rel="stylesheet" />
+<script src="https://pc.sandipsitaula2023.com.np/Player/videojs-ie8.min.js"></script>
+<script src="https://pc.sandipsitaula2023.com.np/Player/videoo.js"></script>
+<script src="https://pc.sandipsitaula2023.com.np/Player/vjs-hls.min.js"></script>
 <body onload="init()">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
@@ -22,11 +24,11 @@ var sv = getParam("sv");
 				document.write("\<video style=\"z-index:2;width:100%;height:100%;background-color:#000;-o-object-fit:fill;object-fit:fill\"  controls=\"controls\" autoplay=\"false\" preload=\"auto\" height=\"auto\" src=\""+sv+"\"\>\<\/video\>");
 			 }else {
 				 
-				 document.write('<video id="streaming" autoplay  preload="auto" height="100%" width="100%" class="video-js" controls data-setup="{&quot;language&quot;: &quot;vi&quot;}"></video>');
+				 document.write('<video id="streaming" autoplay  preload="auto" height="100%" width="100%" class="videoo-js" controls data-setup="{&quot;language&quot;: &quot;vi&quot;}"></video>');
 
 		function play(cid) {
 				src = cid;
-			player = videojs("streaming");
+			player = videoojs("streaming");
 			player.ready(function() {
 				player.src({
 					src: src,
@@ -48,7 +50,7 @@ var sv = getParam("sv");
 
 </div>
 <style>
-	.video-js {
+	.videoo-js {
 		width: 100%;
 		height: 100%;
 	}
@@ -56,7 +58,7 @@ var sv = getParam("sv");
 		text-align: center;
 		margin: 0px;
 	}
-	#videojs {
+	#videoojs {
 		width: 100%;
 		height: 100%;
 	}.streaming-dimensions{
