@@ -1,60 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script type='text/javascript' src='//urgentlyrightypast.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-    <style>
-        #player-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Ensure the container takes the full viewport height */
-            background-color: black; /* Add a background color to ensure visibility during loading */
-        }
-        #unmute-button {
-            position: absolute;
-            top:15px;
-            left: 20px;
-            z-index: 10;
-            padding: 10px 20px;
-            background-color: #ff0000; /* Red background color */
-            color: #ffffff; /* White text color */
-            border: 1px solid black;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background-color 0.3s;
-        }
-        #unmute-button:hover {
-            background-color: #cc0000; /* Darker red on hover */
-        }
-        #unmute-button:focus {
-            outline: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/>
 </head>
 <body>
-    <div id="player-wrapper"></div>
-    <button id="unmute-button">Unmute</button>
+    <video controls crossorigin="anonymous" data-poster="" id="video" playsinline></video>
+
+    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
+    <script src='https://cdn.plyr.io/3.6.2/plyr.polyfilled.js'></script>
+    <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'></script>
     <script>
-        var playerElement = document.getElementById("player-wrapper");
-        var player = new Clappr.Player({
-            source: 'https://ptvsports2.com/master.m3u8?key=WASITV&c=1-jkstar1hin',
-            mimeType: 'application/vnd.apple.mpegurl',
-            mute: true,
-            autoPlay: true,
-            height: '100%',
-            width: '100%',
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+            const source = 'https://ptvsports2.com/master.m3u8/?key=WASITV&c=1-jkstar1hin';  // HLS stream URL
+
+            const defaultOptions = {};
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(source);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+                    const availableQualities = hls.levels.map(level => level.height);
+                    defaultOptions.quality = {
+                        default: availableQualities[0],
+                        options: availableQualities,
+                        forced: true,
+                        onChange: e => updateQuality(e)
+                    };
+                    // Initialize the Plyr player
+                    const player = new Plyr(video, defaultOptions);
+                });
+
+                function updateQuality(newQuality) {
+                    hls.levels.forEach((level, index) => {
+                        if (level.height === newQuality) {
+                            hls.currentLevel = index;
+                        }
+                    });
+                }
+
+                window.hls = hls;
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = source;
+                const player = new Plyr(video, defaultOptions);
+            }
         });
-        player.attachTo(playerElement);
-
-        // Function to unmute the player
-        function unmute() {
-            player.setVolume(100); // Set the volume to 100%
-            player.configure({ mute: false }); // Unmute the player
-        }
-
-        // Add event listener to the unmute button
-        document.getElementById("unmute-button").addEventListener("click", unmute);
     </script>
 </body>
 </html>
