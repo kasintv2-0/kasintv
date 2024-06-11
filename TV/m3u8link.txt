@@ -1,9 +1,9 @@
 http://bone1.dvrdns.org:3232/willow.extra/index.m3u8?token=1764f0c1fd48da2ea353c956aaf03641-Willow TV Extra
 https://live2.notebulk.xyz/uk_sscricket/index.m3u8-Sky Sport Cric
 https://live2.notebulk.xyz/uk_ssmain/index.m3u8- Sky Main Event
-https://t.ly/h6tLP - Star sports hindi
-
-
+https://t.ly/h6tLP - Star sports Hindi
+https://touchcric.xyz/cn22/sportsplayer.php?v=starhindi
+https://touchcric.xyz/cn22/
 https://ptvsports2.com/
 https://sportsleading.online/
 https://sportsonline.gl/prog.txt
