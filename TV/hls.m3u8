@@ -1,14 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=5000000
-  {
-    "name": "Channel-1 English VIP",
-    "link": "https://mprod-cdn.toffeelive.com/live/match-1/index.m3u8",
-    "logo": "https://images.toffeelive.com/images/program/300097/logo/240x240/mobile_logo_060681001717400250.png",
-    "origin": "https://mprod-cdn.toffeelive.com",
-    "referrer": "",
-    "userAgent": "Toffee (Linux;Android 14) AndroidXMedia3/1.1.1/64103898/4d2ec9b8c7534adc",
-    "cookie": "Edge-Cache-Cookie=URLPrefix=aHR0cHM6Ly9tcHJvZC1jZG4udG9mZmVlbGl2ZS5jb20v:Expires=1717877010:KeyName=prod_live_events:Signature=niQlJA8nMMbSYNlYO5NQgRZQWu9FC71Uu0F0u_EfGw9JNo5QPOO5bJehMH-wGMMIH2Hez5Z9Qj0_FsK4tD_DAg",
-    "drmScheme": "",
-    "drmLicense": ""
-  }
+http://45.58.137.74/ptv-123456/tracks-v1a1/mono.m3u8?token=2a1c69d8775e4b8b400ae5b4e6712b4aaadd1f105a2b3ebb9044e3f6d6946c1b-349RT4L2BBCBM402-1717811000-1717800200
