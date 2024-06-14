@@ -144,6 +144,10 @@
             header h1 {
                 font-size: 1.2rem;
             }
+
+            footer .upcoming-events ul {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -178,7 +182,8 @@
 
             let hls;
 
-            function simulateLoading() {
+            // Simulate video loading
+            setTimeout(() => {
                 spinner.style.display = 'none';
                 const activeButton = document.querySelector('nav.servers button.active');
                 if (activeButton.getAttribute('data-source') === 'video') {
@@ -188,10 +193,7 @@
                     iframe.style.display = 'block';
                     loadIframe(activeButton.getAttribute('data-video'));
                 }
-            }
-
-            // Simulate video loading
-            setTimeout(simulateLoading, 1000); // Simulate a 1-second load time
+            }, 1000); // Simulate a 1-second load time
 
             // Server button click events
             const buttons = document.querySelectorAll('nav.servers button');
@@ -219,36 +221,49 @@
                 if (hls) {
                     hls.destroy();
                 }
-                if (Hls.isSupported()) {
-                    hls = new Hls();
-                    hls.loadSource(src);
-                    hls.attachMedia(video);
-                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        video.play();
-                    });
-                    hls.on(Hls.Events.ERROR, function(event, data) {
-                        if (data.fatal) {
-                            switch (data.type) {
-                                case Hls.ErrorTypes.NETWORK_ERROR:
-                                    alert('Network error occurred while trying to load the video.');
-                                    break;
-                                case Hls.ErrorTypes.MEDIA_ERROR:
-                                    alert('Media error occurred while trying to play the video.');
-                                    break;
-                                default:
-                                    alert('An unknown error occurred.');
-                                    break;
+                if (src.endsWith('.m3u8')) {
+                    // If it's an .m3u8 link, use HLS.js
+                    if (Hls.isSupported()) {
+                        hls = new Hls();
+                        hls.loadSource(src);
+                        hls.attachMedia(video);
+                        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                            video.play();
+                        });
+                        hls.on(Hls.Events.ERROR, function(event, data) {
+                            if (data.fatal) {
+                                switch (data.type) {
+                                    case Hls.ErrorTypes.NETWORK_ERROR:
+                                        console.error("Network error");
+                                        break;
+                                    case Hls.ErrorTypes.MEDIA_ERROR:
+                                        console.error("Media error");
+                                        hls.recoverMediaError();
+                                        break;
+                                    default:
+                                        console.error("An error occurred");
+                                        hls.destroy();
+                                        break;
+                                }
                             }
-                        }
-                    });
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    // Fallback to native HLS support for Safari
-                    video.src = src;
-                    video.addEventListener('loadedmetadata', function() {
-                        video.play();
-                    });
+                        });
+                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        // Fallback to native HLS support for Safari
+                        video.src = src;
+                        video.addEventListener('loadedmetadata', function() {
+                            video.play();
+                        });
+                        video.addEventListener('error', function() {
+                            console.error("An error occurred while playing the video");
+                        });
+                    } else {
+                        alert('HLS is not supported.');
+                    }
                 } else {
-                    alert('HLS is not supported.');
+                    // For other formats, directly set the video source
+                    video.src = src;
+                    video.load();
+                    video.play();
                 }
             }
 
