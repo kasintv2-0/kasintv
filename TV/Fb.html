@@ -1,112 +1,281 @@
-
-<!-- Compiled and minified JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-          //========================================================//
-
-          //Main JS Code
-
-
-          $(document).ready(function () {
-            $("#menuimg").click(function () {
-              $("#drop").slideToggle("fast");
-            });
-          });
-        </script>
-        </b></b>
-
-        <style media="screen">
-          
-
-          .ak {
-            display: block;
-            width: 150px;
-            position: relative;
-            font-weight: 800;
-
-            margin: 10px auto;
-            text-align: center;
-            background-color: #0f72e5;
-            border-radius: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 0;
-          }
-          .uc{
-
-             pointer-events: none;
-          }
-        </style>
-
-        <body>
-       
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta content="never" name="referrer">    
-<title>ADITV {ON TELEGRAM}</title>
-<meta name="robots" content="noindex" />
-<link rel="stylesheet" type="text/css" href="/clap.css">
-<script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-<style> 
-  
-  .player-poster[data-poster] {
-    background-size: cover;
-  }
-  body{
-    margin:0;
-    padding:0;
-  }
-  
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T20 World Cup</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #111;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header styles */
+        header {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Navigation styles */
+        nav.servers {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background-color: #111;
+            border-bottom: 2px solid #333;
+        }
+
+        nav.servers button {
+            background: none;
+            border: 2px solid #00f7ff;
+            color: #00f7ff;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+
+        nav.servers button:hover, nav.servers button.active {
+            background-color: #00f7ff;
+            color: #000;
+        }
+
+        nav.servers button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.75);
+        }
+
+        /* Main content styles */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        video {
+            width: 100%;
+            height: 300px;
+            display: none;
+            border-radius: 5px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            display: none;
+            border-radius: 5px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav.servers button {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            footer .upcoming-events ul {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
-<div id="player"></div>
-<script>
-  var player = new Clappr.Player({
-          source: 'https://linearjitp02-playback.astro.com.my/dash-wv/linear/2504/default.mpd',
-          mimeType: 'application/dash+xml',
-          height: '100%',
-          width: '100%',
-          autoPlay: true,
-          plugins: [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
-          events: {onReady: function() {var plugin = this.getPlugin('click_to_pause'); plugin && plugin.disable();},},
-          chromecast: {
-              appId: '9DFB77C0',
-              contentType: 'video/mp4',
-          },
-          shakaConfiguration: {
-              drm: {
-              clearKeys: {
-					'03c2e0af2f8159f9f0ce9b5dbc865f10':'cd84ed136b0cc71f8ab8cd4d4f6a2e4c'		
-                  }
-              },
-          },
-          shakaOnBeforeLoad: function (shaka_player) {},
-          parentId: '#player'
-      });
-  </script>
-  <div id="logo-container" style="position: absolute; top: 10px; right: 40px;">
-<p style="text-align: center;"><span style="color: white; font-family: georgia; font-size: medium;"><i><b>KaSin TV</b></i></span></p>
-<style>
+<body>
+    <div class="container">
+        <header>
+            <h1>T20 World Cup</h1>
+        </header>
+        <nav class="servers">
+            <button id="server1" class="active" data-source="video" data-video="http://opplex.tv:8080/live/2575376/47426736/220063.m3u8">SERVER 1</button>
+            <button id="server2" data-source="video" data-video="http://xtv.ooo:8080/live/27388829/92888372/167575.m3u8">Sky Main</button>
+            <button id="server3" data-source="video" data-video="http://xtv.ooo:8080/live/27388829/92888372/167594.m3u8">Sky Cric</button>
+            <button id="hindi" data-source="iframe" data-video="https://emdftinya.tinyuri.org/embed/hindi.php">HINDI</button>
+            <button id="bengali" data-source="video" data-video="http://lifetvbd.xyz:8080/live/12345/12345/2105.m3u8">ENG</button>
+            <button id="backup1" data-source="video" data-video="http://lifetvbd.xyz:8080/live/12345/12345/3595.m3u8">Hindi</button>
+            <button id="backup2" data-source="video" data-video="http://tv.digitalview.live:8080/live/tawhidbdix2/478506788/955.m3u8">ENG</button>
+        </nav>
+        <main>
+            <div class="video-container">
+                <div class="spinner"></div>
+                <video id="video" controls></video>
+                <iframe id="iframe" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('video');
+            const iframe = document.getElementById('iframe');
+            const spinner = document.querySelector('.spinner');
 
-    /* Reading progress bar */ .progB{position:fixed;top:0;left:0;width:0;height:3px;z-index:97;background-color:var(--linkC)}.drK .progB{background-color:var(--darkU)}
+            let hls;
 
-/* RGB Effect */.stwRainbow,.stwBlurRainbow{position:fixed;width:100%;bottom:0;left:0;right:0;height:3px;z-index:23;background:linear-gradient(-45deg, #4086F4, #31A952, #FBBE01, #EB4132,#4086F4, #31A952, #FBBE01, #EB4132);background-size:200%;-webkit-animation:animeBar 5s linear infinite;animation:animeBar 5s linear infinite}.stwBlurRainbow{height:10px;z-index:22;filter:blur(10px);opacity:.7}@-webkit-keyframes animeBar{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes animeBar{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+            // Simulate video loading
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                const activeButton = document.querySelector('nav.servers button.active');
+                if (activeButton.getAttribute('data-source') === 'video') {
+                    video.style.display = 'block';
+                    loadVideo(activeButton.getAttribute('data-video'));
+                } else {
+                    iframe.style.display = 'block';
+                    loadIframe(activeButton.getAttribute('data-video'));
+                }
+            }, 1000); // Simulate a 1-second load time
 
-</style>
+            // Server button click events
+            const buttons = document.querySelectorAll('nav.servers button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('nav.servers button.active').classList.remove('active');
+                    button.classList.add('active');
+                    const videoSrc = button.getAttribute('data-video');
+                    const sourceType = button.getAttribute('data-source');
+                    stopMedia();
+                    if (sourceType === 'video') {
+                        video.style.display = 'block';
+                        iframe.style.display = 'none';
+                        loadVideo(videoSrc);
+                    } else {
+                        iframe.style.display = 'block';
+                        video.style.display = 'none';
+                        loadIframe(videoSrc);
+                    }
+                    button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                });
+            });
 
-<div class="stwRainbow"></div>
+            function loadVideo(src) {
+                if (hls) {
+                    hls.destroy();
+                }
+                if (src.endsWith('.m3u8')) {
+                    // If it's an .m3u8 link, use HLS.js
+                    if (Hls.isSupported()) {
+                        hls = new Hls();
+                        hls.loadSource(src);
+                        hls.attachMedia(video);
+                        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                            video.play();
+                        });
+                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        // Fallback to native HLS support for Safari
+                        video.src = src;
+                        video.addEventListener('loadedmetadata', function() {
+                            video.play();
+                        });
+                    } else {
+                        alert('HLS is not supported.');
+                    }
+                } else {
+                    // For other formats, directly set the video source
+                    video.src = src;
+                    video.load();
+                    video.play();
+                }
+            }
 
-<div class="stwBlurRainbow"></div>
-</button></body>
-astro
+            function loadIframe(src) {
+                iframe.src = src;
+            }
+
+            function stopMedia() {
+                if (video) {
+                    video.pause();
+                    video.src = '';
+                    if (hls) {
+                        hls.destroy();
+                    }
+                }
+                if (iframe) {
+                    iframe.src = '';
+                }
+            }
+
+            video.addEventListener('play', function() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) { // Firefox
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { // IE/Edge
+                    video.msRequestFullscreen();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
