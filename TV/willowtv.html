@@ -1,60 +1,61 @@
+ 
 <!DOCTYPE html>
 <html>
 <head>
-    <script type='text/javascript' src='//urgentlyrightypast.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
     <style>
-        #player-wrapper {
-            position: relative;
+        video {
             width: 100%;
-            height: 100vh; /* Ensure the container takes the full viewport height */
-            background-color: black; /* Add a background color to ensure visibility during loading */
+            height: auto;
         }
-        #unmute-button {
-            position: absolute;
-            top:15px;
-            left: 20px;
-            z-index: 10;
-            padding: 10px 20px;
-            background-color: #ff0000; /* Red background color */
-            color: #ffffff; /* White text color */
-            border: 1px solid black;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background-color 0.3s;
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            animation: slidein 2s forwards;
         }
-        #unmute-button:hover {
-            background-color: #cc0000; /* Darker red on hover */
+        @keyframes slidein {
+            from {
+                margin-top: -50px;
+                opacity: 0;
+            }
+            to {
+                margin-top: 0;
+                opacity: 1;
+            }
         }
-        #unmute-button:focus {
-            outline: none;
-        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 200px; /* Adjust size as needed */
+            height: auto;
+      
     </style>
 </head>
 <body>
-    <div id="player-wrapper"></div>
-    <button id="unmute-button">Unmute</button>
-    <script>
-        var playerElement = document.getElementById("player-wrapper");
-        var player = new Clappr.Player({
-            source: 'https://karostream.tulix.tv/WillowTvHighBitrate/index.m3u8',
-            mimeType: 'application/vnd.apple.mpegurl',
-            mute: true,
-            autoPlay: true,
-            height: '100%',
-            width: '100%',
+    <div id="jwplayerDiv"></div>
+   
+     <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+    // <script type="text/javascript">
+    //     // Use the PHP configuration directly within the JavaScript
+         var config = {"file":"https://linear-novi.stvacdn.spectrum.com/LIVE/5248/bpk-tv/10364/drm/manifest.mpd","drm":{"clearkey":{"keyId":"475d7932b5f352bb92016b75b60c58fa","key":"ea37faa137ae8f644105c4fcc189a35f"}}}; 
+ 
+        jwplayer("jwplayerDiv").setup({
+          file: config.file,
+            position: 'bottom',
+            autostart: true,
+            stretching: "",
+            width: "100%",
+            height:"80%",
+             drm: {
+                clearkey: {
+                    keyId: config.drm.clearkey.keyId,
+                    key: config.drm.clearkey.key
+                }
+            },
+            type: "dash",
+          
         });
-        player.attachTo(playerElement);
-
-        // Function to unmute the player
-        function unmute() {
-            player.setVolume(100); // Set the volume to 100%
-            player.configure({ mute: false }); // Unmute the player
-        }
-
-        // Add event listener to the unmute button
-        document.getElementById("unmute-button").addEventListener("click", unmute);
-    </script>
+    // </script>
+   
 </body>
 </html>
