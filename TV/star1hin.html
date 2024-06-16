@@ -1,56 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
-    <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/>
-</head>
-<body>
-    <video controls crossorigin="anonymous" data-poster="" id="video" playsinline></video>
-
-    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
-    <script src='https://cdn.plyr.io/3.6.2/plyr.polyfilled.js'></script>
-    <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('video');
-            const source = 'http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8';  // HLS stream URL
-
-            const defaultOptions = {};
-
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(source);
-                hls.attachMedia(video);
-
-                hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-                    const availableQualities = hls.levels.map(level => level.height);
-                    defaultOptions.quality = {
-                        default: availableQualities[0],
-                        options: availableQualities,
-                        forced: true,
-                        onChange: e => updateQuality(e)
-                    };
-                    // Initialize the Plyr player
-                    const player = new Plyr(video, defaultOptions);
-                });
-
-                function updateQuality(newQuality) {
-                    hls.levels.forEach((level, index) => {
-                        if (level.height === newQuality) {
-                            hls.currentLevel = index;
-                        }
-                    });
-                }
-
-                window.hls = hls;
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = source;
-                const player = new Plyr(video, defaultOptions);
-            }
-        });
-    </script>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+ 
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> 
+    <style> 
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+        } 
+        #video { 
+            width: 100%; 
+            height: auto; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <video id="video" controls autoplay></video> 
+ 
+    <script> 
+        var videoSource = "http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8"; // Replace with your desired video source URL 
+ 
+        if (Hls.isSupported()) { 
+            var video = document.getElementById("video"); 
+            var hls = new Hls(); 
+            hls.loadSource(videoSource); 
+            hls.attachMedia(video); 
+            hls.on(Hls.Events.MANIFEST_PARSED, function () { 
+                video.play(); 
+            }); 
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) { 
+            var video = document.getElementById("video"); 
+            video.src = videoSource; 
+            video.addEventListener("loadedmetadata", function () { 
+                video.play(); 
+            }); 
+        } else { 
+            // Handle unsupported scenarios 
+            console.error("This browser does not support HLS or MPEG-DASH playback."); 
+        } 
+    </script> 
+</body> 
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script> 
 </html>
