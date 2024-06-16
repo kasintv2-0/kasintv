@@ -1,47 +1,60 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
- 
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> 
-    <style> 
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-        } 
-        #video { 
-            width: 100%; 
-            height: auto; 
-        } 
-    </style> 
-</head> 
-<body> 
-    <video id="video" controls autoplay></video> 
- 
-    <script> 
-        var videoSource = "http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8"; // Replace with your desired video source URL 
- 
-        if (Hls.isSupported()) { 
-            var video = document.getElementById("video"); 
-            var hls = new Hls(); 
-            hls.loadSource(videoSource); 
-            hls.attachMedia(video); 
-            hls.on(Hls.Events.MANIFEST_PARSED, function () { 
-                video.play(); 
-            }); 
-        } else if (video.canPlayType("application/vnd.apple.mpegurl")) { 
-            var video = document.getElementById("video"); 
-            video.src = videoSource; 
-            video.addEventListener("loadedmetadata", function () { 
-                video.play(); 
-            }); 
-        } else { 
-            // Handle unsupported scenarios 
-            console.error("This browser does not support HLS or MPEG-DASH playback."); 
-        } 
-    </script> 
-</body> 
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script> 
+<!DOCTYPE html>
+<html>
+<head>
+  <script type='text/javascript' src='//urgentlyrightypast.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+    <style>
+        #player-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Ensure the container takes the full viewport height */
+            background-color: black; /* Add a background color to ensure visibility during loading */
+        }
+        #unmute-button {
+            position: absolute;
+            top:15px;
+            left: 20px;
+            z-index: 10;
+            padding: 10px 20px;
+            background-color: #ff0000; /* Red background color */
+            color: #ffffff; /* White text color */
+            border: 1px solid black;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+        #unmute-button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+        #unmute-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="player-wrapper"></div>
+    <button id="unmute-button">Unmute</button>
+    <script>
+        var playerElement = document.getElementById("player-wrapper");
+        var player = new Clappr.Player({
+            source: 'http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8',
+            mimeType: 'application/vnd.apple.mpegurl',
+            mute: true,
+            autoPlay: true,
+            height: '100%',
+            width: '100%',
+        });
+        player.attachTo(playerElement);
+
+        // Function to unmute the player
+        function unmute() {
+            player.setVolume(100); // Set the volume to 100%
+            player.configure({ mute: false }); // Unmute the player
+        }
+
+        // Add event listener to the unmute button
+        document.getElementById("unmute-button").addEventListener("click", unmute);
+    </script>
+</body>
 </html>
