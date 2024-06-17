@@ -1,8 +1,11 @@
 http://bone1.dvrdns.org:3232/willow.extra/index.m3u8?token=1764f0c1fd48da2ea353c956aaf03641-Willow TV Extra
 https://live2.notebulk.xyz/uk_sscricket/index.m3u8-Sky Sport Cric
 https://live2.notebulk.xyz/uk_ssmain/index.m3u8- Sky Main Event
-https://welovedmca.fun/mkv/play.php - Star sports Hindi
+https://welovedmca.fun/mkv/play.php
+https://rips.in/player.php?ch=4 - Star sports Hindi
 https://welovedmca.fun/mkv/server.php
+
+https://rips.in/player.php?ch=3 star sport1
 
 https://touchcric.xyz/cn22/sportsplayer.php?v=starhindi
 https://touchcric.xyz/cn22/
@@ -19,6 +22,9 @@ https://kasintv.pages.dev/TV/
 https://en.gdplayertv.to/
 https://idn.gdplayertv.to/embed/astro-cricket/
 https://idn.gdplayertv.to/embed/supersport-cricket
+
+
+<football>
 http://www.epicsports.in/
 https://www.epicsports.site/
 https://www.epicsports.in.net/
