@@ -1,56 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
-    <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+    <style>
+        #player-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
-    <video controls crossorigin="anonymous" data-poster="" id="video" playsinline></video>
-
-    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
-    <script src='https://cdn.plyr.io/3.6.2/plyr.polyfilled.js'></script>
-    <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'></script>
+    <div id="player-wrapper"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('video');
-            const source = 'https://mhdmaxtv.me/beesport/live.m3u8?id=59';  // HLS stream URL
-
-            const defaultOptions = {};
-
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(source);
-                hls.attachMedia(video);
-
-                hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-                    const availableQualities = hls.levels.map(level => level.height);
-                    defaultOptions.quality = {
-                        default: availableQualities[0],
-                        options: availableQualities,
-                        forced: true,
-                        onChange: e => updateQuality(e)
-                    };
-                    // Initialize the Plyr player
-                    const player = new Plyr(video, defaultOptions);
-                });
-
-                function updateQuality(newQuality) {
-                    hls.levels.forEach((level, index) => {
-                        if (level.height === newQuality) {
-                            hls.currentLevel = index;
-                        }
-                    });
-                }
-
-                window.hls = hls;
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = source;
-                const player = new Plyr(video, defaultOptions);
-            }
+        var playerElement = document.getElementById("player-wrapper");
+        var player = new Clappr.Player({
+            source: 'https://beecdn.wadim77289.workers.dev/Willow_Extra_Live_TV/tracks-v1a1/mono.m3u8',
+            mimeType: 'application/vnd.apple.mpegurl',
+            autoPlay: false,
+            height: '100%',
+            width: '100%',
         });
+        player.attachTo(playerElement);
     </script>
 </body>
 </html>
