@@ -1,67 +1,87 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
-    <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/>
-
-    <style>
-  .overlay {
-    
-    width: 150px;
-    height: 20px;
-    z-index: 999; /* Ensure it's above the video */
-    pointer-events: none; /* Allows clicks to go through the overlay */
-  }
-</style>
-</head>
-<body>
-    <center> <img class="overlay" src="https://imgur.com/V3e1IVH.png" alt="Overlay"></center>
-    <video controls crossorigin="anonymous" data-poster="" id="video" playsinline></video>
-
-    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
-    <script src='https://cdn.plyr.io/3.6.2/plyr.polyfilled.js'></script>
-    <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('video');
-            const source = 'https://ptvsports2.com/master.m3u8/?key=WASITV&c=1-jkstar1in';  // HLS stream URL
-
-            const defaultOptions = {};
-
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(source);
-                hls.attachMedia(video);
-
-                hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-                    const availableQualities = hls.levels.map(level => level.height);
-                    defaultOptions.quality = {
-                        default: availableQualities[0],
-                        options: availableQualities,
-                        forced: true,
-                        onChange: e => updateQuality(e)
-                    };
-                    // Initialize the Plyr player
-                    const player = new Plyr(video, defaultOptions);
-                });
-
-                function updateQuality(newQuality) {
-                    hls.levels.forEach((level, index) => {
-                        if (level.height === newQuality) {
-                            hls.currentLevel = index;
-                        }
-                    });
-                }
-
-                window.hls = hls;
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = source;
-                const player = new Plyr(video, defaultOptions);
+    <html>
+    <head>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+        <title>MG SPORTS TV</title>
+        <style type="text/css">
+            body {
+                width: 100%;
+                height: 100%;
+                background-color: #202020;
             }
-        });
-    </script>
-</body>
-</html>
+    
+        
+            
+    
+            #clappr:full-screen {
+                background: black;
+            }
+    
+            #clappr:-webkit-full-screen {
+                background: black;
+            }
+    
+            #clappr {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                min-height: 600px;
+            }
+    
+            #clappr > div {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+    
+            #clappr > div > div.media-control.live > div.media-control-layer {
+                width: 100% !important;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+    
+            #toggleFullscreen {
+                display: block;
+                margin: 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="clappr" style="width:100%; height:100%;margin:5% auto 0% auto;"></div>
+      
+        <script>
+            var player = new Clappr.Player({
+                source: "https://ptvsports2.com/master.m3u8/?key=WASITV&c=1-jkstar1in",
+                parentId: "#clappr",
+                width: '100%',
+                height: '100%',
+                autoPlay: true,
+            });
+        </script>
+        <script>
+            document.getElementById('toggleFullscreen').addEventListener('click', function() {
+                toggleFullScreenHandler('clappr');
+            }, false);
+    
+            function toggleFullScreenHandler(targetId) {
+                var target = document.getElementById(targetId);
+    
+                if (target.requestFullscreen) {
+                    target.requestFullscreen();
+                } else if (target.mozRequestFullScreen) {
+                    target.mozRequestFullScreen();
+                } else if (target.webkitRequestFullscreen) {
+                    target.webkitRequestFullscreen();
+                } else if (target.msRequestFullscreen) {
+                    target.msRequestFullscreen();
+                }
+            }
+        </script>
+    </body>
+    </html>
