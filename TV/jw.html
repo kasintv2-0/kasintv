@@ -1,14 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.png"/>
   <title>KaSin TV Player</title>
-  
-  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+  <link href="https://cdn.plyr.io/3.6.2/plyr.css" rel="stylesheet"/>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
 </head>
 <body bgcolor='black' style='margin:0'>
-  <div id="player-wrapper" style="width:100%; height:100%;"></div>
+  <video id="player" class="plyr__video-embed" playsinline controls></video>
 
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
@@ -17,7 +20,7 @@
       // Mendapatkan nilai parameter search dari URL
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
-          
+
       // Data JSON untuk channel
       const channelData = {
         "PTV": {
@@ -39,7 +42,7 @@
           "url": "http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8"
         },
         "Star1eng": {
-          "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c=1-jkstar1in'"
+          "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c="
         },
         "Willow": {
           "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c=vvwillow"
@@ -67,25 +70,38 @@
         }
       };
           
-      // Memastikan id ada dalam data JSON dan Setup JW Player
+      // Memastikan id ada dalam data JSON dan Setup Plyr player
       if (id && channelData[id]) {
-        console.log(`Initializing JW Player for channel: ${id}`);
-        jwplayer("player-wrapper").setup({
-          file: channelData[id].url,
-          width: '100%',
-          height: '100%',
-          autostart: false,
-          controls: true,
+        const videoSrc = channelData[id].url;
+        const video = document.querySelector('#player');
+
+        if (Hls.isSupported() && videoSrc.includes('.m3u8')) {
+          const hls = new Hls();
+          hls.loadSource(videoSrc);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+          });
+        } else if (videoSrc.includes('.mpd')) {
+          const dash = dashjs.MediaPlayer().create();
+          dash.initialize(video, videoSrc, true);
+        } else {
+          video.src = videoSrc;
+          video.play();
+        }
+
+        const player = new Plyr(video, {
+          captions: { active: true, update: true, language: 'en' },
         });
+
       } else {
         console.error('Channel not found or URL is empty!');
+        const video = document.querySelector('#player');
         // Example fallback URL for testing
-        jwplayer("player-wrapper").setup({
-          file: "https://ptvsports2.com/master.m3u8/?key=WASITV&c=vvwillow",
-          width: '100%',
-          height: '100%',
-          autostart: false,
-          controls: true,
+        video.src = "https://cdn.jwplayer.com/manifests/yp34SRmf.m3u8";
+        video.play();
+        const player = new Plyr(video, {
+          captions: { active: true, update: true, language: 'en' },
         });
       }
     });
