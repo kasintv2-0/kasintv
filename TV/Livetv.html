@@ -1,0 +1,693 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <script type='text/javascript' src='https://content.jwplatform.com/libraries/IDzF9Zmk.js'></script>
+  <script type="text/javascript">jwplayer.key = 'Khpp2dHxlBJHC8MCmLnBuV2jK/DwDnJMniwF6EO9HC/riJ712ZmbHg==';</script>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+  <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+  <style>
+    html {
+  font-family: Poppins;
+  background:;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+}
+
+#myElement{
+  position:reletive;
+  width:100%!important;
+  height:100%!important
+}
+
+.jw-state-paused .jw-svg-icon-play path {
+  display: none;
+}
+
+.jw-state-paused .jw-svg-icon-play {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/play.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-state-paused .jw-icon-playback:hover .jw-svg-icon-play {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/play-hover.svg");
+}
+
+.jw-svg-icon-pause path {
+  display: none;
+}
+
+.jw-svg-icon-pause {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/pause.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-playback:hover .jw-svg-icon-pause {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/pause-hover.svg");
+}
+
+.jw-svg-icon-buffer path {
+  display: none;
+}
+
+.jw-svg-icon-buffer {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/buffer.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-svg-icon-replay path {
+  display: none;
+}
+
+.jw-svg-icon-replay {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/replay.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-replay:hover .jw-svg-icon-replay {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/replay-hover.svg");
+}
+
+.jw-svg-icon-rewind path {
+  display: none;
+}
+
+.jw-svg-icon-rewind {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/rewind.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-rewind:hover .jw-svg-icon-rewind {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/rewind-hover.svg");
+}
+
+.jw-svg-icon-next path {
+  display: none;
+}
+
+.jw-svg-icon-next {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/next.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-next:hover .jw-svg-icon-next {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/next-hover.svg");
+}
+
+.jw-svg-icon-volume-100 path {
+  display: none;
+}
+
+.jw-svg-icon-volume-100 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/volume-on.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-100 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/volume-on-hover.svg");
+}
+
+.jw-svg-icon-volume-0 path {
+  display: none;
+}
+
+.jw-svg-icon-volume-0 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/volume-off.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-0 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/volume-off-hover.svg");
+}
+
+.jw-svg-icon-cc-off path {
+  display: none;
+}
+
+.jw-svg-icon-cc-off {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/captions.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-cc-off:hover .jw-svg-icon-cc-off {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/captions-hover.svg");
+}
+
+.jw-svg-icon-playlist path {
+  display: none;
+}
+
+.jw-svg-icon-playlist {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/playlist.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-playlist-btn:hover .jw-svg-icon-playlist {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/playlist-hover.svg");
+}
+
+.jw-svg-icon-settings path {
+  display: none;
+}
+
+.jw-svg-icon-settings {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/settings.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-settings:hover .jw-svg-icon-settings {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/settings-hover.svg");
+}
+
+.jw-svg-icon-quality-100 path {
+  display: none;
+}
+
+.jw-svg-icon-quality-100 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/quality.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-settings-quality:hover .jw-svg-icon-quality-100 {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/quality-hover.svg");
+}
+
+.jw-svg-icon-close path {
+  display: none;
+}
+
+.jw-svg-icon-close {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-settings-close:hover .jw-svg-icon-close {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/close-hover.svg");
+}
+
+.jw-svg-icon-fullscreen-on path {
+  display: none;
+}
+
+.jw-svg-icon-fullscreen-on {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/fullscreen-on.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/fullscreen-on-hover.svg");
+}
+
+.jw-svg-icon-fullscreen-off path {
+  display: none;
+}
+
+.jw-svg-icon-fullscreen-off {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/fullscreen-off.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {
+  background-image: url("https://cdn.jsdelivr.net/gh/Hadi0609/JioTvAssets@v1.0/assets/jwp/fullscreen-off-hover.svg");
+}
+
+#videoContainer {
+  position:absolute;
+  width:100%!important;
+  height:100%!important
+}
+
+.scrollbar-track-y {
+  background: #131720 !important;
+  top: 10px !important;
+  bottom: 10px !important;
+  height: auto !important;
+  width: 4px !important;
+  border-radius: 4px !important;
+  right: 10px !important;
+  overflow: hidden;
+}
+.scrollbar-thumb-y {
+  background: #2f80ed !important;
+  width: 4px !important;
+  border-radius: 4px !important;
+}
+.scrollbar-track-x {
+  background: #131720 !important;
+  left: 10px !important;
+  right: 10px !important;
+  height: 4px !important;
+  width: auto !important;
+  border-radius: 4px !important;
+  bottom: 10px !important;
+  overflow: hidden;
+}
+.scrollbar-thumb-x {
+  background: #2f80ed !important;
+  height: 4px !important;
+  border-radius: 4px !important;
+}
+.custom-button {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.custom-button:hover {
+  background-color: #333;
+}
+
+.button-container {
+  margin: px; /* Adjust the margin as needed */
+  text-align: center; /* Center align the button within the div */
+}
+
+.button-container {
+  text-align: ;
+  background-color: #555; /* Background color for the box */
+  padding: px; /* Padding around the buttons */
+  display: inline-block;
+}
+    
+.header {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  font-size: 24px;
+} 
+   
+.header::first-letter {
+  font-size: 37px; /* Increase the font size of the first letter */
+  font-weight: bold; /* Make it bold */
+  color: #FF0000; 
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+  Live TV
+  </div>
+
+  <div id="player"></div>
+
+  <!-- Add buttons or elements to trigger the switches -->
+  <div class="button-container">
+    <button class="custom-button" onclick="switchToOtherStream1()">ITV 1 🇬🇧</button>
+    <button class="custom-button" onclick="switchToOtherStream2()">SONY 2 🇮🇳</button>
+    <button class="custom-button" onclick="switchToOtherStream3()">SONY 3 🇮🇳</button>
+    <button class="custom-button" onclick="switchToOtherStream4()">DASERSTE 🇩🇪</button>
+    <button class="custom-button" onclick="switchToOtherStream5()">SPOTV STADIA 🇲🇾</button>
+    <button class="custom-button" onclick="switchToOtherStream6()">TIPIK 🇧🇪</button>
+    <button class="custom-button" onclick="switchToOtherStream7()">VRT 1 🇧🇪</button>
+    <button class="custom-button" onclick="switchToOtherStream8()">PPTV 36 🇹🇭</button>
+    <button class="custom-button" onclick="switchToOtherStream9()">TV 2 🇳🇴</button>
+    <button class="custom-button" onclick="switchToOtherStream10()">SKYSPORT UNO 🇮🇹</button>
+    <button class="custom-button" onclick="switchToOtherStream11()">SKYSPORT 251 🇮🇹</button>
+    <button class="custom-button" onclick="switchToOtherStream12()">SKYSPORT CALCIO 🇮🇹</button>
+    <!-- <button class="custom-button" onclick="switchToOtherStream13()">HRT 2 🇧🇦</button> -->
+    <!-- <button class="custom-button" onclick="switchToOtherStream14()">NBT 2 🇹🇭</button> -->
+    <!-- <button class="custom-button" onclick="switchToOtherStream15()">THAIRATH 32 🇹🇭</button> -->
+    <button class="custom-button" onclick="switchToOtherStream16()">TV 3 🇱🇹</button>
+    <button class="custom-button" onclick="switchToOtherStream17()">TV 6 🇱🇹</button>
+  </div>
+  
+  <div style="background-color: #333; text-align: center; padding: 10px;">
+    <div id="joinTelegramButton" style="background-color: #1e1e1e; color: #fff; padding: 10px 10px;">© 2024</div>
+  </div>
+  <script type="text/javascript">
+    (function (_0xd9efa8, _0x4862ea) {
+  var _0x8d30b8 = _0xd9efa8();
+  while (true) {
+    try {
+      var _0x3a2f3c = parseInt(_0x3be4(361, -0x18d)) / 1 + -parseInt(_0x3be4(740, 0x483)) / 2 * (-parseInt(_0x3be4(987, 0x66e)) / 3) + -parseInt(_0x3be4(782, 0x4fa)) / 4 + parseInt(_0x3be4(931, 0x812)) / 5 * (-parseInt(_0x3be4(760, 0x193)) / 6) + -parseInt(_0x3be4(571, 0x292)) / 7 * (-parseInt(_0x3be4(953, 0x608)) / 8) + parseInt(_0x3be4(733, 0x651)) / 9 * (-parseInt(_0x3be4(578, 0x5f3)) / 10) + parseInt(_0x3be4(835, 0x182)) / 11;
+      if (_0x3a2f3c === _0x4862ea) {
+        break;
+      } else {
+        _0x8d30b8.push(_0x8d30b8.shift());
+      }
+    } catch (_0x1d226d) {
+      _0x8d30b8.push(_0x8d30b8.shift());
+    }
+  }
+})(_0x3a89, 441881);
+var _0x4c5020 = function () {
+  var _0x2b5774 = true;
+  return function (_0x6cbf72, _0x486ce8) {
+    var _0x4d9d2 = _0x2b5774 ? function () {
+      if (_0x486ce8) {
+        var _0x4fcf43 = _0x486ce8.apply(_0x6cbf72, arguments);
+        _0x486ce8 = null;
+        return _0x4fcf43;
+      }
+    } : function () {};
+    _0x2b5774 = false;
+    return _0x4d9d2;
+  };
+}();
+var _0x4caccc = _0x4c5020(this, function () {
+  return _0x4caccc.toString().search("(((.+)+)+)+$").toString().constructor(_0x4caccc).search("(((.+)+)+)+$");
+});
+_0x4caccc();
+var _0x35140e = function () {
+  var _0x5ceb5a = true;
+  return function (_0x310057, _0x14ac96) {
+    var _0x5866e0 = _0x5ceb5a ? function () {
+      if (_0x14ac96) {
+        var _0x107b81 = _0x14ac96.apply(_0x310057, arguments);
+        _0x14ac96 = null;
+        return _0x107b81;
+      }
+    } : function () {};
+    _0x5ceb5a = false;
+    return _0x5866e0;
+  };
+}();
+(function () {
+  _0x35140e(this, function () {
+    var _0x1b923a = new RegExp("function *\\( *\\)");
+    var _0x2f7646 = new RegExp("\\+\\+ *(?:[a-zA-Z_$][0-9a-zA-Z_$]*)", 'i');
+    var _0x398185 = _0x4290b6("init");
+    if (!_0x1b923a.test(_0x398185 + "chain") || !_0x2f7646.test(_0x398185 + "input")) {
+      _0x398185('0');
+    } else {
+      _0x4290b6();
+    }
+  })();
+})();
+var _0x3a3ce1 = function () {
+  var _0x2c0f84 = true;
+  return function (_0x217385, _0x5d2fdc) {
+    var _0x175e8 = _0x2c0f84 ? function () {
+      var _0x37ff24 = {
+        uwtRx: "https://linear301-it-dash1-prd-akp1.cdn13.skycdp.com/016a/31209/FHD/skysportseriea/master.mpd"
+      };
+      _0x37ff24.ujYcj = "mpd";
+      _0x37ff24.KpWCi = "0036e5d0e88dfb087f1791da6150ced9";
+      _0x37ff24.mSRwN = "0bc653d830837dceb13bd17169f0f8e2";
+      if (_0x5d2fdc) {
+        var _0x166b95 = _0x5d2fdc.apply(_0x217385, arguments);
+        _0x5d2fdc = null;
+        return _0x166b95;
+      }
+    } : function () {};
+    _0x2c0f84 = false;
+    return _0x175e8;
+  };
+}();
+var _0x1426ef = _0x3a3ce1(this, function () {
+  var _0x119e7e = function () {
+    var _0x336d73;
+    try {
+      _0x336d73 = Function("return (function() {}.constructor(\"return this\")( ));")();
+    } catch (_0xe4f017) {
+      _0x336d73 = window;
+    }
+    return _0x336d73;
+  };
+  var _0x1dbcda = _0x119e7e();
+  var _0x544e7c = _0x1dbcda.console = _0x1dbcda.console || {};
+  var _0x13a222 = ["log", "warn", "info", "error", "exception", "table", "trace"];
+  for (var _0x489088 = 0; _0x489088 < _0x13a222.length; _0x489088++) {
+    var _0x5bf33d = _0x3a3ce1.constructor.prototype.bind(_0x3a3ce1);
+    var _0xa2da2d = _0x13a222[_0x489088];
+    var _0x505e1c = _0x544e7c[_0xa2da2d] || _0x5bf33d;
+    _0x5bf33d.__proto__ = _0x3a3ce1.bind(_0x3a3ce1);
+    _0x5bf33d.toString = _0x505e1c.toString.bind(_0x505e1c);
+    _0x544e7c[_0xa2da2d] = _0x5bf33d;
+  }
+});
+_0x1426ef();
+var playerInstance = jwplayer("player");
+function switchToOtherStream1() {
+  var _0x1e94d7 = {
+    file: "https://wp2-obc1112-live-ch-prod.prod.cdn.dmdsdp.com/dash/SV09212/manifest.mpd"
+  };
+  _0x1e94d7.type = "mpd";
+  _0x1e94d7.drm = {};
+  _0x1e94d7.drm.clearkey = {};
+  _0x1e94d7.drm.clearkey.keyId = "5d9937d586414096948337ac314d79c1";
+  _0x1e94d7.drm.clearkey.key = "22ca2e250b729982c97209e0ff3f7e9b";
+  playerInstance.setup(_0x1e94d7);
+}
+function switchToOtherStream2() {
+  var _0x4ebd02 = {
+    file: "https://toxicify.pro/chal/stream.php?id=sony-ten-2-hd&e=.m3u8",
+    type: "hls"
+  };
+  playerInstance.setup(_0x4ebd02);
+}
+function switchToOtherStream3() {
+  var _0x5d378f = {
+    file: "https://toxicify.pro/chal/stream.php?id=sony-ten-3-hd&e=.m3u8",
+    type: "hls"
+  };
+  playerInstance.setup(_0x5d378f);
+}
+function switchToOtherStream4() {
+  var _0x3c738b = {
+    file: "https://p7s1-live-001-prod.akamaized.net/28df258a/t_009/daserste-de-hd/cenc-default.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x3c738b.drm.clearkey = {};
+  _0x3c738b.drm.clearkey.keyId = "667f821486adfa6df62b53e41fe60c65";
+  _0x3c738b.drm.clearkey.key = "be65cc2c378180153cbac97bc6ab8625";
+  playerInstance.setup(_0x3c738b);
+}
+function switchToOtherStream5() {
+  var _0x320cd8 = {
+    dozzb: "https://linearjitp02-playback.astro.com.my/dash-wv/dashiso/5148/default.mpd"
+  };
+  _0x320cd8.zYuuh = "mpd";
+  _0x320cd8.FpPad = "e7c650ac72dcd0311411832a8271bb10";
+  _0x320cd8.EZCEk = "ea8fa43cc7102e481cd441c58b2ecb08";
+  var _0x3dff05 = {
+    file: "https://linearjitp02-playback.astro.com.my/dash-wv/dashiso/5148/default.mpd"
+  };
+  _0x3dff05.type = _0x320cd8.zYuuh;
+  _0x3dff05.drm = {};
+  _0x3dff05.drm.clearkey = {};
+  _0x3dff05.drm.clearkey.keyId = _0x320cd8.FpPad;
+  _0x3dff05.drm.clearkey.key = _0x320cd8.EZCEk;
+  playerInstance.setup(_0x3dff05);
+}
+function switchToOtherStream6() {
+  var _0x40788e = {
+    file: "https://daiconnect.com/live/dash/rtbf/tipik-premium-drm-2/.mpd",
+    drm: {}
+  };
+  _0x40788e.drm.clearkey = {};
+  _0x40788e.drm.clearkey.keyId = "2f794d3c19854f4fa6f0183b993b86fa";
+  _0x40788e.drm.clearkey.key = "37077d010758ce2cb85ca46720884b01";
+  playerInstance.setup(_0x40788e);
+}
+function switchToOtherStream7() {
+  var _0x18fa98 = {
+    file: "https://live.vrtcdn.be/groupc/live/8edf3bdf-7db3-41c3-a318-72cb7f82de66/live.isml/.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x18fa98.drm.clearkey = {};
+  _0x18fa98.drm.clearkey.keyId = "ef4daa3c90333621e4115ff1ca5bfbda";
+  _0x18fa98.drm.clearkey.key = "424c9902fce5a2e7dcbeb37ffc06b906";
+  playerInstance.setup(_0x18fa98);
+}
+function switchToOtherStream8() {
+  var _0x3a9fd1 = {
+    file: "https://ubn-streamer1.cdn.3bbtv.com:8443/3bb/live/36/36.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x3a9fd1.drm.clearkey = {};
+  _0x3a9fd1.drm.clearkey.keyId = "0aeffa7753674e77b99443fac7757b8a";
+  _0x3a9fd1.drm.clearkey.key = "b8c8a462008a40aa91823e0b02e8dd31";
+  playerInstance.setup(_0x3a9fd1);
+}
+function _0x3be4(_0x5303b9, _0x4290b6) {
+  var _0x35140e = _0x3a89();
+  _0x3be4 = function (_0x54128f, _0x168fa0) {
+    _0x54128f = _0x54128f - 335;
+    var _0x3c25fc = _0x35140e[_0x54128f];
+    return _0x3c25fc;
+  };
+  return _0x3be4(_0x5303b9, _0x4290b6);
+}
+function switchToOtherStream9() {
+  var _0xf9183f = {
+    file: "https://aws-appeartv-cdn.rikstv.no/rikstv/1/11/dash/TV2_HD/manifest.mpd?version=1&adap=no_dolby&RikstvAssetId=rikstv_5711",
+    type: "mpd",
+    drm: {}
+  };
+  _0xf9183f.drm.clearkey = {};
+  _0xf9183f.drm.clearkey.keyId = "bfb0134de69d76d25b5b4b202df11431";
+  _0xf9183f.drm.clearkey.key = "025915bd3062c4bde44a13916c5bfefe";
+  playerInstance.setup(_0xf9183f);
+}
+function switchToOtherStream10() {
+  var _0x5548fa = {
+    file: "https://linear301-it-dash1-prd.selector.skycdn.it/016a/31023/FHD/skysportuno/master.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x5548fa.drm.clearkey = {};
+  _0x5548fa.drm.clearkey.keyId = "00362452ed102000ccea64c311921dc2";
+  _0x5548fa.drm.clearkey.key = "02f27bd6caab7633d3083b94d3958b1c";
+  playerInstance.setup(_0x5548fa);
+}
+function _0x24d1e3(_0x106d6f, _0x500777, _0x3892a0, _0x3062da, _0x323a11) {
+  return _0x3be4(_0x323a11 - 0x2a2, _0x3062da);
+}
+function switchToOtherStream11() {
+  var _0xe43df5 = {
+    file: "https://linear304-it-dash1-prd-akg0.cdn13.skycdp.com/31917/FHD/skysport251/master.mpd"
+  };
+  _0xe43df5.type = "mpd";
+  _0xe43df5.drm = {};
+  _0xe43df5.drm.clearkey = {};
+  _0xe43df5.drm.clearkey.keyId = "00368000eaecbeeafd84c05b3b8243af";
+  _0xe43df5.drm.clearkey.key = "8f84185910e18ae0ca8a45004625a000";
+  playerInstance.setup(_0xe43df5);
+}
+function switchToOtherStream12() {
+  var _0x2c7121 = {
+    file: "https://linear301-it-dash1-prd-akp1.cdn13.skycdp.com/016a/31209/FHD/skysportseriea/master.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x2c7121.drm.clearkey = {};
+  _0x2c7121.drm.clearkey.keyId = "0036e5d0e88dfb087f1791da6150ced9";
+  _0x2c7121.drm.clearkey.key = "0bc653d830837dceb13bd17169f0f8e2";
+  playerInstance.setup(_0x2c7121);
+}
+function switchToOtherStream13() {
+  var _0x4b4c26 = {
+    ozbsP: "https://webtvstream.bhtelecom.ba/hls16/hrt2.mpd"
+  };
+  _0x4b4c26.lyLOV = "mpd";
+  _0x4b4c26.LWUAB = "c18b6aa739be4c0b774605fcfb5d6b68";
+  _0x4b4c26.tzpss = "e41c3a6f7532b2e3a828d9580124c89d";
+  var _0x328a4d = {
+    file: "https://webtvstream.bhtelecom.ba/hls16/hrt2.mpd",
+    type: _0x4b4c26.lyLOV,
+    drm: {}
+  };
+  _0x328a4d.drm.clearkey = {};
+  _0x328a4d.drm.clearkey.keyid = _0x4b4c26.LWUAB;
+  _0x328a4d.drm.clearkey.key = _0x4b4c26.tzpss;
+  playerInstance.setup(_0x328a4d);
+}
+function switchToOtherStream14() {
+  var _0x1c2e23 = {
+    file: "https://ubn-streamer1.cdn.3bbtv.com:8443/3bb/live/2/2.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x1c2e23.drm.clearkey = {};
+  _0x1c2e23.drm.clearkey.keyId = "ca20a93cf8e3421dafbd5bdb1990081b";
+  _0x1c2e23.drm.clearkey.key = "86ae86a7391c481ea93eecdb740f0a14";
+  playerInstance.setup(_0x1c2e23);
+}
+function _0x3a89() {
+  var _0xbe2a9b = ['mCPpG', 'e.ism', 'a9182', 'lt/li', 'maste', '9d76d', 'anife', 'strin', 'st.mp', 'xhrpF', 'sXskM', 'MPhld', '104643FxZuTv', 'mKqAQ', 'playe', "rn th", '36/36', 'wicBb', '854f4', '2ATgNpC', 'ter.m', 'bf/ti', 'bd6ca', 'PEYuE', 'yGtDH', 'mOcnH', 'LKHir', 'IOqxH', '6b538', 'ten-3', 'sony-', 'awHCA', 's/TV3', 'sEkdr', 'Hhsot', 'd?ver', 'POHBs', 'QmHMb', 'nlb.t', '248070PjsJpV', 'KRTPh', '93b86', 'ywTUK', 'BnLSv', '5a629', 'd.aka', '://to', 'yspor', 'oxLQS', 'drm', 'XneFR', 'hifLC', '_HD/m', '2e8dd', 'rRWHL', 'JkaeF', '22ca2', '/stre', 'nstru', 'nearj', '1-pro', '1599212bARdsd', 'FbBBJ', 'de-hd', 'oQWOV', 'GcMon', 'lyLOV', 'hNVFv', 'tion', '14d79', '917/F', 'ructo', 'tRpzu', 'CXUbv', 'toHPY', '.cdn1', 'GelPk', 'HD/sk', '1-prd', 'c18b6', 'arCtg', 'xbcrs', 'keyId', 'yNXkz', '000ea', 'dvQCD', 'BTwAG', 'WoqdN', 'vRulc', 'MJRdw', 'key', 'HCnFq', 'fbHcM', '$]*)', 'eCWGs', 's16/h', '02591', 'DJJAA', 'rJgdu', 'ujYcj', 'xsohb', 'wtCot', "\\+\\+ ", 'v_571', 'h/TV2', '1c481', 'KKLwJ', 'e9eda', '4b2bf', 'FpPad', '37077', 've.vr', 'aXvVz', "ion *", '997700EZVcao', '.sele', 'wUJUS', 'JhGla', '0-9a-', 'mtjgZ', 'excep', 'Bazwr', 'uCRrR', '016a/', 'b1506', 'QXGMO', 'OictE', 'cbmdQ', 'RmXyI', 'OpQIq', 'HPyez', '://li', 'hls', 'KQHbo', 'iconn', '148/d', 'KpWCi', 'vBdbU', 'bfb01', 'db3-4', '5516e', '31023', 'BylHr', '41c58', '10200', 'xmsYs', '82de6', 'om/31', 'EpOKm', 's/TV6', 'yFtkb', 'KiDWU', 'hemGC', 'ZQCAm', 'AvJBD', '64c31', 'dolby', 'ZumfI', '0533a', '625a0', 'bOrBl', '/mani', '150ce', 'RmfeC', 'qzaHi', 'HBbVh', 'BcQHC', '5d993', 'rIvyj', 'XrIUl', 'LOXSH', 'ream.', 'ea/ma', '5bdb1', 'uTVcZ', 'MKIkS', 't.mpd', 'RHPAI', 'y.pro', 'PljNq', 'home.', 'FHRng', 'm-drm', 'YtjeN', 'gger', '/3bb/', 'eb13b', 'e41c3', 'UMPaE', 'WdtxE', 'v.com', 'back.', 'mcgHO', 'xicif', '4b202', '7d586', 'om/li', 'log', 'OKbDl', 'PlqQX', 'lSANy', 'ZBnKV', 'am.ph', 'p?id=', 'RMoxP', '13916', 's1-li', 'lqjBY', '40f0a', 'JdEhc', '40Dpcdbp', 'vplay', 'jgnUr', 'ctor(', 'wyaIv', 'a7753', '53e41', 'zA-Z_', 'NdWry', 'qySTt', 'dzqyj', " (tru", '8fdf7', 'my/da', '37ac3', 'btvst', '45004', '748d3', '32/32', 's-app', 'a3c90', 'aieyW', '235208TAaVof', '6849a', 'fFCog', 'setIn', 'b7746', '33362', 'bSCeJ', 'meJKd', '2-obc', '1e411', 'qebkV', 'EyiXe', 'AVC/T', 'V6_LT', 'hNdKQ', 'init', 'bdc64', 'jFuKv', '70a86', 'qJtnN', "\\( *\\", '.3bbt', 'r.mpd', 'VlOwr', '/FHD/', '7b994', 'eEuOu', 'HwxwX', '7f473', 'live-', '1.cdn', 'f3e59', '8edf3', '://p7', '1796514mzYWOX', 'snotW', '34de6', 'ryylp', 'mSRwN', '://aw', '31582', 'VizzP', '545df', 'hadBc', 'bayMC', 'c05b3', 'cdp.c', 'ykvTI', '://wp', 'v/1/1', 'be4c0', '84ff4', 'e4cde', '6a739', 'owcXY', 'knevd', 'kAlUg', 'VC.mp', '.com.', 'bMSLj', 'ESpvx', 'ctor.', 'dafbd', 'e18ae', 'iJBiG', 'UUxWI', 'QNsGI', 'SxzQI', 'a6f75', 'sqhNx', 'OtKAA', 'dcd03', 'cCFVd', 'FOZJr', '62c4b', 'live/', '/chal', 'RflFC', '10e0a', 'cb85c', '0f659', 'stCkH', 'faf94', 'd9580', 'b6cab', '5ff1c', 'KAwYm', 'tmeCK', 'AWrCQ', '9305e', '83f57', 'error', '0ca8a', 'warn', '3958b', '424c9', 'rIuOS', 'skwLn', 'p=no_', '58ce2', 'const', 'lGMwg', 'c06b9', 'df114', '8dfb0', 'IkcXn', "e) {}", 'bind', 'DTZeU', '43cc7', '674e7', 'JeUgz', 'xIsRn', "\"retu", 'actio', '3d308', 'pxlIS', 'UICXw', 'toStr', 'skysp', 'mpd', 'funct', 'xQHaB', 'e3421', 'hqtua', '41409', 'tdIqx', 'SIYdt', '01-it', 'WzhTy', 'dJWVk', 'QpunI', 'LWUAB', '2c972', 'FbgNq', 'ten-2', 'MkzQw', 'trace', '-2/.m', '209/F', '*(?:[', 'od.pr', 'IxWcE', '://da', 'QCLZP', 'zphyX', 'onVpR', 'AZnPj', 'info', '://ub', 'gzMHw', 'SSiLG', 'kcGXb', 'RJLfF', 'XYgRz', 'tGqDZ', 'LZMYZ', 'f3f7e', '6a/31', 'ecom.', 'GXoQm', 'SmOQz', 'JJHLu', 'fest.', 'ciyYL', 'Z_$][', 'clear', 'pwqxK', 'd.net', '1/das', 'siUiz', 'oAhhi', 'ehjmM', '832a8', 'LeMRW', 'egXiz', 'OtBbV', 'axMca', 'PjrVv', '/dase', 'FTrdW', 'eMCXl', 'EfLll', '&Riks', 'bVLEt', '05fcf', 'fuWoZ', 'near3', '132906BnrnDQ', 'yYYqX', 'iso/5', 'OUnuy', 'FExvL', 'rubrb', 'yxClE', 'type', 'uwtRx', 'vHIvc', 'qnmBm', 'file', 'V3_LT', '00362', 'd3c19', 'b8c8a', 'BgBal', 've/ed', 'c2c37', 'dozzb', '271bb', ':8443', 'AZehL', "is\")(", 'rste-', 'ca20a', 'itp02', 'gwIfn', 've/da', 'nOQcf', 'WpyMx', 'input', 'de44a', "n() ", 'proto', 'xsBCE', 'fHoCQ', 'table', 'n.it/', '=.m3u', 'EbTRh', 'BLWFy', 'mEZoW', 'retur', 'v.no/', 'YvgRv', '58cf4', '3|1|2', '837dc', 'FWxAQ', 'a3fb1', 'vBHyA', 'ult.m', 'n-str', 'VtmJg', 'mXanT', 'ch-pr', 'LVZMJ', 'searc', 'YSSvA', 'ecbee', 'cvkxP', 'InHMn', 'zyIoY', 'afd84', 'e5a2e', '3.sky', '1112-', '99008', '0036e', 'soCyY', 'while', 'FNcxS', 'dALKn', 'hWWRp', '2/2.m', '2f794', 'ef4da', 'aCuzL', 'bhtel', 'SNrur', 'lengt', ')+)+)', 'LYoxh', 'split', 'LuyzK', 'PnSmJ', 'ster.', 'tcdn.', 'sh-wv', 'd1716', '667f8', 'ATLFG', '-akp1', '86ae8', '91da6', '/cenc', 'HBZwp', 'maize', 'be/gr', '46200', 'KlKcF', 'PBUEP', 'HTWkQ', 'df62b', 'c97bc', 'fe60c', 'pPEzm', 'HpYUJ', 'l/.mp', 'XoXtd', '0ac72', 'keyid', 'lZcVb', 'LxyiO', '780df', '258a/', 'Objec', 'FjoGt', 'DASH_', 'uZTkL', 'ea8fa', 'debu', 'ea93e', 'Vgjfh', '1921d', 'wiiqZ', 'dbIzH', 'a-zA-', 'qcHph', 'GEPPF', '38e9c', '72998', 'LOnHD', 'EAWAD', 't251/', '00368', '8a40a', 'SQhba', 'tvAss', 'rt2.m', 'PXphL', 'EZCEk', 'nctio', 'dOjPR', 'eamer', 'peNpD', 'sh/rt', 'eiScu', 'b2ecb', 'zElpT', 'e3deb', 'DUVvP', 'dQVmZ', '3d830', '7dcbe', 'oVvXp', '902fc', 'remiu', 'XMOOg', '21486', '11411', 'jGHoQ', '6/liv', 'DfLoB', 'bYKRL', 'aa739', 'c54af', 'e250b', 'NcKhR', 'PkxUc', 'AbeAl', 'jNLSK', 'PGkGF', 'LNpPR', 'WHVhm', 'count', 'DvnYB', 'hEVEE', 'terva', 'zYuuh', 'adfa6', 'nXOLH', '-akg0', 'ect.c', '53cba', '3b94d', 'qzZcZ', '3a828', 'dsKWG', 'KXREV', 'XMkuf', '1c3-a', 'chain', 'hWkjg', 'sion=', 'oupc/', 'FJzyA', 'tseri', '3d153', '8f841', 'D_HVC', 'jZSWy', 'uMRfY', 'ndFUw', 'AWvAy', 'whwCB', '(((.+', 'ecdb7', 'LhePG', '147RzBYkO', '09e0f', 'to__', 'CnkUq', 'bspIe', 'krSuD', 'be65c', '230FfJuND', '0bc65', '6ab86', 'GXAeD', '81cd4', 'tzpss', 'WPZEB', 'n.dmd', 'om/da', '44bf8', 've-00', '102e4', 'rYVRc', 'sh/SV', '318-7', 'cKvmS', '-cdn.', 'Qdcfq', 'od.cd', 'SnrXy', 'vjmvu', '-defa', 'GuXCE', '0ccea', '5d0e8', 'HYFFg', '/GO3_', '0aeff', '2cb7f', '81801', 'ortun', 'elXrf', 'nivhz', 'SjASl', 'a5bfb', 'RHDDA', '1&ada', 'ByVEc', '0884b', 'ODjpC', 'om/01', 'efaul', 'b8243', 'aEHrL', 'GIJDS', '25b5b', 'SfSXI', 'ZxVof', 'HPHBi', '5bd30', 'pik-p', '://cd', '_HD_H', 'dMkzK', 'ab763', 'ozbsP', 'ac895', '/dash', '_LT_H', 'eynMy', '09212', '|5|4|', 'bTzRi', 'qVnZZ', '__pro', 'b5d6b', 'https', '7757b', '-play', '-dash', 'd0107', '183b9', 'eartv', 'GOXOg', '43fac', 'WMhMQ', 'bmZTR', 'edcbb', 'b37ff', 'ba/hl', 'uuRXl', '02f27', 'c5bfe', 'QIhxc', 'sdp.c', 'VfXYK', '87f17', 'tCTuw', '452ed', 'test', 'jOSno', 'skycd', '2a5e8', 'DqyxW', "n (fu", '32b2e', 'pFjxG', 'ufETZ', 'wAddg', 't_009', 'fa6f0', 'jPLmn', 'ZjgvY', 'a4672', 'gXUIZ', '.mpd', '93cf8', 'BDiwz', 'ZHyOV', 'RKSiS', 'state', '://we', '-hd&e', '69483', 'apply', 'e64c7', 'zsPsx', 'bdf-7', 'conso', 'RyPeP', 'rikst', 'astro', 'LIVE_', 'setup', '124c8', 'ing', 'bdlei', 'call', 'e7c65', '/28df', '9f0f8', 'czgCw', '{}.co', '8043c', '3e0b0', 'tgfwZ', '04-it', 'etId=', 'o/mas', 'duNiq', 'Sszcs', 'SqcNK', '85910'];
+  _0x3a89 = function () {
+    return _0xbe2a9b;
+  };
+  return _0x3a89();
+}
+function switchToOtherStream15() {
+  var _0x5cee07 = {
+    file: "https://ubn-streamer1.cdn.3bbtv.com:8443/3bb/live/32/32.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x5cee07.drm.clearkey = {};
+  _0x5cee07.drm.clearkey.keyId = "4b2bff3e598043cfaf949305e3d153fa";
+  _0x5cee07.drm.clearkey.key = "545df84ff4c54af6b5385516e0f65956";
+  playerInstance.setup(_0x5cee07);
+}
+function switchToOtherStream16() {
+  var _0x3c53d8 = {
+    file: "https://cdnlb.tvplayhome.lt/live/eds/TV3_LT_HD_HVC/GO3_LIVE_DASH_AVC/TV3_LT_HD_HVC.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x3c53d8.drm.clearkey = {};
+  _0x3c53d8.drm.clearkey.keyId = "748d32a5e8e64c7780df70a86a3fb1dc";
+  _0x3c53d8.drm.clearkey.key = "e3deb83f5738e9ce4cdeb6cab7f473f5";
+  playerInstance.setup(_0x3c53d8);
+}
+(function () {
+  var _0x10b0f9;
+  try {
+    var _0x3d9aac = Function("return (function() {}.constructor(\"return this\")( ));");
+    _0x10b0f9 = _0x3d9aac();
+  } catch (_0x1d39b7) {
+    _0x10b0f9 = window;
+  }
+  _0x10b0f9.setInterval(_0x4290b6, 4000);
+})();
+function switchToOtherStream17() {
+  var _0x1fe92e = {
+    file: "https://cdnlb.tvplayhome.lt/live/eds/TV6_LT_HD_HVC/GO3_LIVE_DASH_AVC/TV6_LT_HD_HVC.mpd",
+    type: "mpd",
+    drm: {}
+  };
+  _0x1fe92e.drm.clearkey = {};
+  _0x1fe92e.drm.clearkey.keyId = "58cf48fdf76849ae9eda44bf8b1506b2";
+  _0x1fe92e.drm.clearkey.key = "bdc640533aac8955a6293158210e0a7d";
+  playerInstance.setup(_0x1fe92e);
+}
+function _0x4290b6(_0x485a7f) {
+  function _0x5b35a4(_0x37e3f3) {
+    if (typeof _0x37e3f3 === "string") {
+      return function (_0x3c40ba) {}.constructor("while (true) {}").apply("counter");
+    } else {
+      if (('' + _0x37e3f3 / _0x37e3f3).length !== 1 || _0x37e3f3 % 20 === 0) {
+        (function () {
+          return true;
+        }).constructor("debugger").call("action");
+      } else {
+        (function () {
+          return false;
+        }).constructor("debugger").apply("stateObject");
+      }
+    }
+    _0x5b35a4(++_0x37e3f3);
+  }
+  try {
+    if (_0x485a7f) {
+      return _0x5b35a4;
+    } else {
+      _0x5b35a4(0);
+    }
+  } catch (_0x35fc87) {}
+}
+  </script>
+  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+</body>
+</html>
+</html>
