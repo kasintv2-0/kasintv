@@ -5,8 +5,7 @@
   <link rel="shortcut icon" href="favicon.png"/>
   <title>KaSin TV Player</title>
   
-  <script src="https://cdn.jsdelivr.net/npm/jwplayer@latest/jwplayer.min.js"></script>
-  <script>jwplayer.key="WekQKXpNA+6Zu4Xqh8HIplxBshT9dsysj+64zPf47oD4NSEwAU/pEFcDEty525gG";</script> <!-- Ensure you replace with your JW Player key -->
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 </head>
 <body bgcolor='black' style='margin:0'>
   <div id="player-wrapper" style="width:100%; height:100%;"></div>
@@ -40,16 +39,16 @@
           "url": "http://vo01.mohdtv.com:8880//live/hdtv0405dda140a6/15954034/55273.m3u8"
         },
         "Star1eng": {
-          "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c=1-jkstar1in'"
+          "url": ""
         },
         "Willow": {
-          "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c=vvwillow"
+          "url": ""
         },
         "Willowxtrta": {
           "url": "https://beecdn.wadim77289.workers.dev/Willow_Extra_Live_TV/tracks-v1a1/mono.m3u8"
         },
         "SkyCric": {
-          "url": "https://ptvsports2.com/master.m3u8/?key=WASITV&c=supercricket"
+          "url": ""
         },
         "SuperCric": {
           "url": "https://beecdn.wadim77289.workers.dev/SuperSport_Cricket_Live_TV/tracks-v1a1/mono.m3u8"
@@ -79,7 +78,15 @@
           controls: true,
         });
       } else {
-        console.error('Channel not found!');
+        console.error('Channel not found or URL is empty!');
+        // Example fallback URL for testing
+        jwplayer("player-wrapper").setup({
+          file: "https://ptvsports2.com/master.m3u8/?key=WASITV&c=vvwillow",
+          width: '100%',
+          height: '100%',
+          autostart: true,
+          controls: true,
+        });
       }
     });
   </script>
