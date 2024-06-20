@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/>
+</head>
+<body>
+    <video controls crossorigin="anonymous" data-poster="" id="video" playsinline></video>
+
+    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
+    <script src='https://cdn.plyr.io/3.6.2/plyr.polyfilled.js'></script>
+    <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+            const source = 'https://video-edge-916834-fra02.hls-video.net/live/hindi-1080p-x264.m3u8';  // HLS stream URL
+
+            const defaultOptions = {};
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(source);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+                    const availableQualities = hls.levels.map(level => level.height);
+                    defaultOptions.quality = {
+                        default: availableQualities[0],
+                        options: availableQualities,
+                        forced: true,
+                        onChange: e => updateQuality(e)
+                    };
+                    // Initialize the Plyr player
+                    const player = new Plyr(video, defaultOptions);
+                });
+
+                function updateQuality(newQuality) {
+                    hls.levels.forEach((level, index) => {
+                        if (level.height === newQuality) {
+                            hls.currentLevel = index;
+                        }
+                    });
+                }
+
+                window.hls = hls;
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = source;
+                const player = new Plyr(video, defaultOptions);
+            }
+        });
+    </script>
+</body>
+</html>
