@@ -1,8 +1,14 @@
-#EXTM3U #EXT-X-VERSION:3 #EXT-X-MEDIA-SEQUENCE:302 #EXT-X-TARGETDURATION:20 #EXTINF:19.840, no desc
-https://welovedmca.fun/mkv/mkv.php?ts=https://st63.24cwc.com/hls/token/2aymysimhwynbjymtobhikhgd8fy79k8/stream-302-1718897735477.ts #EXTINF:16.200,
-no desc https://welovedmca.fun/mkv/mkv.php?ts=https://st63.24cwc.com/hls/token/2aymysimhwynbjymtobhikhgd8fy79k8/stream-303-1718897755290.ts
-#EXTINF:14.000, no desc
-https://welovedmca.fun/mkv/mkv.php?ts=https://st63.24cwc.com/hls/token/2aymysimhwynbjymtobhikhgd8fy79k8/stream-304-1718897771498.ts #EXTINF:17.440,
-no desc https://welovedmca.fun/mkv/mkv.php?ts=https://st63.24cwc.com/hls/token/2aymysimhwynbjymtobhikhgd8fy79k8/stream-305-1718897785495.ts
-#EXTINF:10.000, no desc
-https://welovedmca.fun/mkv/mkv.php?ts=https://st63.24cwc.com/hls/token/2aymysimhwynbjymtobhikhgd8fy79k8/stream-306-1718897802977.ts
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:6041
+#EXT-X-TARGETDURATION:17
+#EXTINF:6.920,
+https://ptvsports2.com/master.m3u8/?key=WASITV&ts=https://n4.dramaticreadings.com:999/hls/starhindi-6116.ts
+#EXTINF:8.000,
+https://ptvsports2.com/master.m3u8/?key=WASITV&ts=https://n4.dramaticreadings.com:999/hls/starhindi-6042.ts
+#EXTINF:11.920,
+https://ptvsports2.com/master.m3u8/?key=WASITV&ts=https://n4.dramaticreadings.com:999/hls/starhindi-6043.ts
+#EXTINF:10.000,
+https://ptvsports2.com/master.m3u8/?key=WASITV&ts=https://n4.dramaticreadings.com:999/hls/starhindi-6044.ts
+#EXTINF:5.080,
+https://ptvsports2.com/master.m3u8/?key=WASITV&ts=https://n4.dramaticreadings.com:999/hls/starhindi-6045.ts
