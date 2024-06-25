@@ -101,23 +101,35 @@
 
     <script>
         $(document).ready(function() {
+            console.log("Document is ready");
+
+            // Prevent image context menu
             $("img").on("contextmenu", function() {
                 return false;
             });
 
+            // Extract URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const srcParam = urlParams.get('src');
             const videoUrl = urlParams.get('url');
+
+            console.log("srcParam:", srcParam);
+            console.log("videoUrl:", videoUrl);
 
             if (srcParam) {
                 $('#iframe').attr('src', srcParam).show();
                 $('#jwPlayer').hide();
             } else if (videoUrl) {
+                console.log("Initializing JWPlayer with video URL:", videoUrl);
                 jwplayer("jwPlayer").setup({
                     file: videoUrl,
+                }).on('error', function() {
+                    console.error("JWPlayer encountered an error");
                 });
                 $('#iframe').hide();
                 $('#jwPlayer').show();
+            } else {
+                console.log("No src or url parameter found");
             }
         });
     </script>
