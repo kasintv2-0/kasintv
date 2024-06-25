@@ -11,13 +11,12 @@
 
 var jwDefaults = {
   "aspectratio": "16:9",
-  "autostart": true,
+  "autostart": false,
   "controls": true,
   "displaydescription": true,
   "displaytitle": true,
   "height": 260,
-  "key": "WekQKXpNA+6Zu4Xqh8HIplxBshT9dsysj+64zPf47oD4NSEwAU/pEFcDEty525gG",
-  "mute": false,
+  "key": "ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=",
   "ph": 1,
   "pid": "IDzF9Zmk",
   "playbackRateControls": false,
