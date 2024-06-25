@@ -24,5 +24,11 @@ var jwDefaults = {
   "repeat": false,
   "stretching": "uniform",
   "width": "100%"
+logo: {
+        file: "https://imgur.com/wGEiPIB.png",
+        link: "/",
+        position: "top-left",
+        margin: "5",
+   
 };
 jwplayer.defaults = jwDefaults;
