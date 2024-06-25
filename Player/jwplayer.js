@@ -11,12 +11,13 @@
 
 var jwDefaults = {
   "aspectratio": "16:9",
-  "autostart": false,
+  "autostart": true,
   "controls": true,
   "displaydescription": true,
   "displaytitle": true,
   "height": 260,
-  "key": "ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=",
+  "key": "WekQKXpNA+6Zu4Xqh8HIplxBshT9dsysj+64zPf47oD4NSEwAU/pEFcDEty525gG",
+  "mute": false,
   "ph": 1,
   "pid": "IDzF9Zmk",
   "playbackRateControls": false,
@@ -24,11 +25,5 @@ var jwDefaults = {
   "repeat": false,
   "stretching": "uniform",
   "width": "100%"
-logo: {
-        file: "https://imgur.com/wGEiPIB.png",
-        link: "/",
-        position: "top-left",
-        margin: "5",
-   
 };
 jwplayer.defaults = jwDefaults;
