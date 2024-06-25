@@ -6,88 +6,86 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Video Player</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://pc.sandipsitaula2023.com.np/Player/jwplayer.js"></script>
+    <script src="/Player/jwplayer.js"></script>
     <style>
-        #container {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          background: #8a0000;
-          color: #fff;
-          overflow: hidden;
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #8a0000;
+            color: #fff;
+            overflow: hidden;
         }
         #iframe, #jwPlayer {
-          height: 100vh !important;
-          padding: 0;
-          margin: 0;
-        }
-        body {
-          height: 100vh;
-          margin: 0;
-          padding: 0;
-        }
-        #container {
-          position: absolute;
-          text-align: center;
-        }
-        video {
-          outline: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
         }
         #text {
-          position: fixed;
-          border: 0;
-          left: 0;
-          width: 100%;
-          color: #fff;
-          bottom: 50px;
-          text-align: center;
-          font-family: tahoma;
-          font-size: 20px;
-          z-index: 9999;
+            position: fixed;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            font-family: Tahoma, sans-serif;
+            font-size: 20px;
+            z-index: 9999;
+        }
+        #tme {
+            position: fixed;
+            z-index: 99999999;
+            bottom: 50px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #tme_message {
+            position: absolute;
+            bottom: 62px;
+            right: -10px;
+            width: 250px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgb(0 0 0);
+            transition: opacity .5s ease-in;
+        }
+        #tme_message p {
+            margin: 8px 0;
+            font-size: 12px;
+            color: #8e8e8e;
+            text-align: right;
+        }
+        #tme_message a {
+            margin: 2px 6px;
+            font-weight: 700;
+            color: #fff;
+            background: #08c;
+            border-radius: 8px;
+            display: inline-block;
+            padding: 2px 10px;
+            text-decoration: none;
+        }
+        .clossalert {
+            padding: 0 4px;
+            position: absolute;
+            right: 8px;
         }
     </style>
 </head>
 <body>
-    <script>
-        function getParam(sname) {
-            var params = new URLSearchParams(window.location.search);
-            return params.get(sname);
-        }
-
-        $(document).ready(function() {
-            $("img").on("contextmenu", function() {
-                return false;
-            });
-        });
-
-        const srcParam = getParam("src");
-        const videoUrl = getParam("url");
-
-        if (srcParam) {
-            document.getElementById('iframe').src = srcParam;
-            document.getElementById('jwPlayer').style.display = 'none';
-        } else if (videoUrl) {
-            jwplayer("jwPlayer").setup({
-                file: videoUrl,
-            });
-            document.getElementById('iframe').style.display = 'none';
-        }
-    </script>
-
-    <iframe id="iframe" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="5" height="100%" marginheight="0" marginwidth="0" width="100%"></iframe>
+    <iframe id="iframe" allowfullscreen allowtransparency></iframe>
     <div id="jwPlayer"></div>
     <div id="text">www.kasintv.com</div>
-    
-    <script type='text/javascript' src='//pl23245164.highcpmgate.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
-    <script data-cfasync='false' src='//wwr.hlinit.com/?tag=7df0faea'></script>
-    <script disable-devtool-auto='' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-    
-    <div id='tme'>
-        <div id='tme_message'>
+    <div id="tme">
+        <div id="tme_message">
             <button class='clossalert' onclick='document.getElementById("tme").style.display="none";'>X</button>
             <strong>Join to Telegram</strong>
-            <p>Join our Telegram Channel to Watch the Matches Highlight<a href='https://t.me/kasintvlivecricket' rel='nofollow' role='button' target='_blank'>Click to subscribe</a></p>
+            <p>Join our Telegram Channel to Watch the Matches Highlight <a href='https://t.me/kasintvlivecricket' rel='nofollow' target='_blank'>Click to subscribe</a></p>
         </div>
         <svg width="70px" height="70px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="14" fill="url(#paint0_linear_87_7225)"/>
@@ -100,5 +98,36 @@
             </defs>
         </svg>
     </div>
+
+    <script>
+        function getParam(sname) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(sname);
+        }
+
+        $(document).ready(function() {
+            $("img").on("contextmenu", function() {
+                return false;
+            });
+
+            const srcParam = getParam("src");
+            const videoUrl = getParam("url");
+
+            if (srcParam) {
+                $('#iframe').attr('src', srcParam).show();
+                $('#jwPlayer').hide();
+            } else if (videoUrl) {
+                jwplayer("jwPlayer").setup({
+                    file: videoUrl,
+                });
+                $('#iframe').hide();
+                $('#jwPlayer').show();
+            }
+        });
+    </script>
+
+    <script type='text/javascript' src='//pl23245164.highcpmgate.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
+    <script data-cfasync='false' src='//wwr.hlinit.com/?tag=7df0faea'></script>
+    <script disable-devtool-auto='' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
 </body>
 </html>
