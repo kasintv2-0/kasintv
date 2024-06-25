@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/20603b964f.js"></script>
+    <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+    <script type="text/javascript">
+        jwplayer.key = 'ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=';
+    </script>
+</head>
+<body>
+    <div id="myElement"></div>
+    <script type="text/javascript">
+        // Extract the URL parameter 'c'
+        var urlParams = new URLSearchParams(window.location.search);
+        var redirectUrl = urlParams.get('k');
+
+        jwplayer("myElement").setup({
+            file: redirectUrl,
+            type: "hls",
+            hlshtml: true,
+            playbackRateControls: [0.75, 1, 1.25, 1.5],
+            width: "100%",
+            height: "100%",
+            aspectratio: '16:9',
+            repeat: 'true',
+            autostart: false,
+            mute:false,
+            primary: 'html5',
+            setFullscreen: true,
+            controls: true,
+            showCode: true,
+            responsive: true,
+            image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4RS6dXW-6pOCIl8WMaCDwAJ4orZsyV8Zt6GoxGeNBxJQqcx5Rj5OHrpRUFSPtvG85p1zPxwvXlEKmzs5LJ7kkQ93aeSfW2GTdA-Nlqp5tVoQJB5wJEFOPOWFHpRx0FbhJhJsKRHPsfoukZUSk9D9yxIsK9cGvo8hKul4jupBhhlju8O7vx6n8eP2gSEA/s320/WWW.KASINTV.COM.webp',
+            abouttext: "www.kasintv.com",
+            aboutlink: "",
+            logo: {
+                file: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4RS6dXW-6pOCIl8WMaCDwAJ4orZsyV8Zt6GoxGeNBxJQqcx5Rj5OHrpRUFSPtvG85p1zPxwvXlEKmzs5LJ7kkQ93aeSfW2GTdA-Nlqp5tVoQJB5wJEFOPOWFHpRx0FbhJhJsKRHPsfoukZUSk9D9yxIsK9cGvo8hKul4jupBhhlju8O7vx6n8eP2gSEA/s320/WWW.KASINTV.COM.webp",
+                link: "www.kasintv.com",
+                position: "top-left",
+                margin: "5",
+                hide: true,
+            },
+            skin: {
+                name: "glow",
+                active: "blue",
+                inactive: "",
+                background: ""
+            }
+        });
+    </script>
+</body>
+</html>
