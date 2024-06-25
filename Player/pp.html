@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Video Player</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Player/jwplayer.js"></script>
@@ -100,18 +100,14 @@
     </div>
 
     <script>
-        function getParam(sname) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(sname);
-        }
-
         $(document).ready(function() {
             $("img").on("contextmenu", function() {
                 return false;
             });
 
-            const srcParam = getParam("src");
-            const videoUrl = getParam("url");
+            const urlParams = new URLSearchParams(window.location.search);
+            const srcParam = urlParams.get('src');
+            const videoUrl = urlParams.get('url');
 
             if (srcParam) {
                 $('#iframe').attr('src', srcParam).show();
