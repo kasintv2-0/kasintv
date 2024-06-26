@@ -6,11 +6,65 @@
 <script type="text/javascript"src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.2.0/dist/hlsjs-playback.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/@c3voc/clappr-audio-track-selector@0.2.4/dist/audio-track-selector.min.js"></script> 
- 
+   <style>
+   
+        #text {
+            position: fixed;
+            border: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            bottom: 30px;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+            font-size: 15px;
+            z-index: 9999;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: rgba(51, 51, 51, 0.4); /* Semi-transparent background color */
+            padding: 10px 0; /* Padding around the text */
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 18s linear infinite; /* Slower animation */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+      
+
+        #logo {
+            position: fixed;
+            top: 5px;
+            right: 5px;
+            z-index: 10000;
+        }
+
+        #logo img {
+            width: 300px; /* Adjust the size as needed */
+        }
+    </style>
 <script disable-devtool-auto='' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
  <script type='text/javascript' src='//urgentlyrightypast.com/3e/55/72/3e5572134655ad4aaaa398f55df7d030.js'></script>
 <script type='text/javascript' src='//urgentlyrightypast.com/43/85/cf/4385cf4c178e5e6bc4e56ceb0f2730dd.js'></script>
+ <div id="logo">
+        <a href="https://t.me/kasintv">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4RS6dXW-6pOCIl8WMaCDwAJ4orZsyV8Zt6GoxGeNBxJQqcx5Rj5OHrpRUFSPtvG85p1zPxwvXlEKmzs5LJ7kkQ93aeSfW2GTdA-Nlqp5tVoQJB5wJEFOPOWFHpRx0FbhJhJsKRHPsfoukZUSk9D9yxIsK9cGvo8hKul4jupBhhlju8O7vx6n8eP2gSEA/s320/WWW.KASINTV.COM.webp" alt="Logo">
+        </a>
+    </div>
 <div id="player" style="height: 100%; width: 100%;"></div> 
+ <div id="text">
+        <div class="scrolling-text">This website is removed anytime for copyright Please Join the Telegram Channel for More Updates @kasintv</div>
+    </div>
 </head>   
 <body>  
  <script> 
