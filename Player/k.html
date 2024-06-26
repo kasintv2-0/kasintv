@@ -3,6 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Text and Video Player</title>
+    <style>
+        body {
+            background-color: #000; /* Background color for the whole page */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #text {
+            position: fixed;
+            border: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            bottom: 50px;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+            font-size: 20px;
+            z-index: 9999;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: rgba(51, 51, 51, 0.4); /* Semi-transparent background color */
+            padding: 10px 0; /* Padding around the text */
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 18s linear infinite; /* Slower animation */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #myElement {
+            width: 100%;
+            height: 100%;
+        }
+
+        #logo {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            z-index: 10000;
+        }
+
+        #logo img {
+            width: 300px; /* Adjust the size as needed */
+        }
+    </style>
     <script src="https://use.fontawesome.com/20603b964f.js"></script>
     <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
     <script type="text/javascript">
@@ -10,7 +70,15 @@
     </script>
 </head>
 <body>
+    <div id="logo">
+        <a href="https://t.me/kasintv">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4RS6dXW-6pOCIl8WMaCDwAJ4orZsyV8Zt6GoxGeNBxJQqcx5Rj5OHrpRUFSPtvG85p1zPxwvXlEKmzs5LJ7kkQ93aeSfW2GTdA-Nlqp5tVoQJB5wJEFOPOWFHpRx0FbhJhJsKRHPsfoukZUSk9D9yxIsK9cGvo8hKul4jupBhhlju8O7vx6n8eP2gSEA/s320/WWW.KASINTV.COM.webp" alt="Logo">
+        </a>
+    </div>
     <div id="myElement"></div>
+    <div id="text">
+        <div class="scrolling-text">www.kasintv.com</div>
+    </div>
     <script type="text/javascript">
         // Extract the URL parameter 'c'
         var urlParams = new URLSearchParams(window.location.search);
@@ -26,7 +94,7 @@
             aspectratio: '16:9',
             repeat: 'true',
             autostart: false,
-            mute:false,
+            mute: false,
             primary: 'html5',
             setFullscreen: true,
             controls: true,
