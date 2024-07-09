@@ -4,14 +4,15 @@
         body {
           background-color: #23244a;
         }
-     /* Add your custom styles for the iframe container */
+
+             /* Add your custom styles for the iframe container */
         #player-container {
             position: relative;
             overflow: hidden;
             padding-top: 56.25%; /* 16:9 aspect ratio (change based on your player's aspect ratio) */
         }
 
-        #player-iframe {
+        #video-iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -20,16 +21,41 @@
             border: 0;
         }
 
-        
+        .logo-container {    position: fixed;
+    top: 10px;    right: -2px;
+    z-index: 1000;    display: flex;
+    align-items: center;}
+.logo-container .float {
+    display: inline-block;    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/640px-Telegram_2019_Logo.svg.png') no-repeat center center;
+    background-size: contain;    width: 50px;
+    height: 50px;    text-decoration: none;
+}
+.logo-container .label-container {    display: flex;
+    align-items: center;    margin-left: 10px;
+}
+.logo-container .label-arrow {
+    color: white;    margin-right: 5px;
+}
+.logo-container .label-text {    color: white;
+    font-size: 14px;}
       </style>
     
-<script disable-devtool-auto='' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+      <div class="logo-container" >
+ <a href="https://t.me/kasintv" target="_blank" rel="noopener noreferrer" class="float" id="logo"></a>
+            <div class="label-container">
+            
+                <div class="label-text"></div>
+            </div>
+        </div>
+    
         <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
           
       <body style="margin: 0; overflow: hidden;">
-          <div id="player-container">
-                  <iframe id="video-iframe" src="https://player.huminbird.cn/detail.html?mid=${id}&type=1&pid=7&isTips=0&isLogin=1&sbtcolor="allowfullscreen='true'></iframe>
+          <div id="player-container" allowfullscreen='true' >
+              </div>
+                 <iframe id="video-iframe" src="https://player.huminbird.cn/detail.html?mid=${id}&type=1&pid=7&isTips=0&isLogin=1&sbtcolor="allowfullscreen='true'></iframe>
+
              
               
           </div>
@@ -47,8 +73,7 @@
               };
       
               //=================================================================================================//
-              
-              updateIframeSrc();
+               updateIframeSrc();
       
              
               document.getElementById('update-id-button').addEventListener('click', () => {
