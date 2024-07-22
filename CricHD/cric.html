@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+<link href="https://m.touchcric.com/css/mediaqueries.css" rel="stylesheet" type="text/css" />
+<link href="https://m.touchcric.com/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://m.touchcric.com/css/jquery.mobile-1.4.1.min.css">
+  
+<script type="text/javascript">
+    aclib.runPop({
+        zoneId: '2452363',
+    });
+</script>
+
+<script src="https://m.touchcric.com/js/jquery-1.10.2.min.js"></script>
+<script src="https://m.touchcric.com/js/jquery.mobile-1.4.1.min.js"></script>
+<script src="https://m.touchcric.com/js/hlsjs.0.12.4.min.js"></script>
+<script src="https://m.touchcric.com/js/lz-string.min.js"></script>
+<script src="https://m.touchcric.com/js/simplepeer_9_7_2.min.js?id=51448211"></script>
+<script src="https://m.touchcric.com/js/vidictPeer_server_touchcric.min.js?id=39.1"></script>
+<script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="wrapper" data-role="page" id="pageone">
+
+<div class="mca" id="channels">
+
+</div>
+<br>
+
+
+
+
+<div class="clear"></div>
+</div>
+<!--#############################wrapper 1 END #############################-->
+
+<div class="wrapper" data-role="page" id="pagetwo">
+<div class="header">
+
+<a href="https://m.touchcric.com/" onclick="showChannels ();" data-transition="slide"><img src="images/logo.png" alt="Touchcric Logo" /></a>
+</div>
+
+
+
+<div class="mca" id="streams">
+</div>
+
+
+
+<div class="contact">
+<center><a href="downloads/touchcric.apk" data-transition="fade"><img src="images/touchcric-apk.png" alt="Download Touchcric App on Android" /></a>
+</center>
+</div>
+<br>
+<center><p>&copy; 2022 TouchCric.com </p></center>
+<div class="clear"></div>
+</div>
+
+<!--#############################wrapper 2 END #############################-->
+
+<div class="wrapper"data-role="page" id="pagethree">
+<div class="header">
+
+
+<a href="https://m.touchcric.com/" onclick="showChannels ();" data-transition="slide"><img src="images/logo.png" alt="Touchcric Logo" /></a>
+</div>
+
+<div class="add">
+ 
+</div>
+
+<div class="mca">
+<h1>High Quality Video</h1>
+
+<div class="clear"></div>
+</div>
+
+<div class="add">
+ 
+</div>
+
+<div class="add">
+<center><a href="#"><img src="images/add.jpg" alt="Touchcric Image" /></a>
+</center>
+</div>
+
+<div class="contact">
+<center><a href="#pageforth" data-transition="slide"><img src="images/contact.png" alt="Touchcric Contact us Page" /></a>
+</center>
+</div>
+
+<center><p>&copy; 2022 TouchCric.com </p></center>
+<div class="clear"></div>
+</div>
+
+<!--#############################wrapper 3 END #############################-->
+
+<div class="wrapper" data-role="page" id="pageforth">
+<div class="header">
+<a href="https://m.touchcric.com/" onclick="showChannels();" data-transition="slide"><img src="images/logo.png" alt="Touchcric Logo" /></a>
+</div>
+
+
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<!--#############################wrapper 4 END #############################-->
+
+<div class="wrapper" data-role="page" id="video">
+
+
+<div class="header">
+<a href="https://m.touchcric.com/" onclick="showChannels ();" data-transition="slide"><img src="images/logo.png" alt="Touchcric Logo" /></a>
+
+</div>
+
+
+
+<div class="mca" id="videoDiv">
+</div>
+
+
+<div class="clear"></div>
+</div>
+
+<!--#############################wrapper 5 END #############################-->
+
+<div data-role="page" id="options">
+  <div data-role="header">
+  <h1>Thank you</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+  <p style="padding-left:10px;">Thank you, You will be contacted shortly!!</p>
+  <a href="#pageone" class="ui-btn ui-btn-inline ui-shadow ui-corner-all"><img src="images/go.png" width="120" height="46" alt="Touchcric Image" style="padding-top:20px;"/></a>
+  </div>
+  
+  </div>
+
+
+
+<script type="text/javascript" src="https://m.touchcric.com/js/touchcric_vidictPeer.js?id=26062024"></script>
+
+
+<script>
+
+	var data;
+	var sn = "M8Jj-0NKO-aYb8-NXYQ-6a3gc";
+    //var videoPlayer;
+    var ea = "";
+	var jako="";
+    var videoPlayer;
+	//showChannels ();
+	showChannels ("d57274bb4a2f169bffzebc7595d8bf730c4510a948884c99defdfa84ce4e929c0d795783f2c33578c859b377d59455fe2dc665bc8780d62325742bc0713ef88fe");
+
+	function performGet (url){
+		console.log("GETTING URL: " + url);
+		try{
+			var request = new XMLHttpRequest();
+			request.open('GET', url, false);  // `false` makes the request synchronous
+			request.send(null);
+			console.log("request.status: " + request.status);
+			if (request.status === 200) {
+				console.log(request.responseText);
+				return request.responseText;
+			}
+		} catch (e){
+			console.log(e);
+		}
+	}
+
+        function clear (myNode){
+                while (myNode.firstChild) {
+                        myNode.removeChild(myNode.firstChild);
+                }
+        }
+
+
+	
+$(function(){
+    $.each(["show","hide", "toggleClass", "addClass", "removeClass"], function(){
+        var _oldFn = $.fn[this];
+        $.fn[this] = function(){
+            var hidden = this.find(":hidden").add(this.filter(":hidden"));
+            var visible = this.find(":visible").add(this.filter(":visible"));
+            var result = _oldFn.apply(this, arguments);
+            hidden.filter(":visible").each(function(){
+                $(this).triggerHandler("show");
+            });
+            visible.filter(":hidden").each(function(){
+                $(this).triggerHandler("hide");
+            });
+            return result;
+        }
+    });
+});
+
+$("#pagetwo").bind("show", function(){
+	if (document.getElementById("stream_id_0") == null) { 
+		window.location='https://m.touchcric.com';
+	}
+	if (document.getElementById("videoplayer") != null) {
+		document.getElementById("videoplayer").pause();
+	}
+});
+
+</script>
+
+<script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://arvigorothan.com/tag.min.js',5899785,document.body||document.documentElement)</script>
+
+</body>
+
+</html>
