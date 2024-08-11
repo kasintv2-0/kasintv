@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U8 Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.7/plyr.min.css" />
+    <style>
+        #player-container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        :root {
+            --plyr-color-main: #e657ff;
+            --plyr-video-control-color: #e8ffba;
+        }
+    </style>
+</head>
+<body>
+    <div id="player-container">
+        <video id="video-player" class="vid1" controls>
+            <!-- Caption files -->
+            <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default />
+            <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt" />
+        </video>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.7/plyr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoUrl = urlParams.get('video');
+
+            const controls = [
+                'play-large', // The large play button in the center
+                'play', // Play/pause playback
+                'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                'progress', // The progress bar and scrubber for playback and buffering
+                'current-time', // The current time of playback
+                'duration', // The full duration of the media
+                'mute', // Toggle mute
+                'volume', // Volume control
+                'captions', // Toggle captions
+                'settings', // Settings menu
+                'pip', // Picture-in-picture (currently Safari only)
+                'airplay', // Airplay (currently Safari only)
+                'fullscreen' // Toggle fullscreen
+            ];
+
+            const player = new Plyr('#video-player', { controls });
+
+            if (videoUrl) {
+                player.source = {
+                    type: 'video',
+                    sources: [
+                        {
+                            src: videoUrl,
+                            type: 'application/x-mpegURL',
+                        },
+                    ],
+                };
+            } else {
+                console.error('No video URL provided!');
+                alert('No video URL provided!');
+            }
+        });
+    </script>
+</body>
+</html>
