@@ -1,0 +1,83 @@
+
+        .link-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #000;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            flex-wrap: nowrap; /* Ensure items don't wrap within the box */
+        }
+        .link-box img {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+        .link-text {
+            flex-grow: 1;
+            margin-left: 20px;
+            text-decoration: none; /* Remove underline */
+            color: black; /* Ensure the text color is black */
+        }
+        .live-icon {
+            color: red;
+            font-weight: bold;
+            animation: blink 1s infinite;
+            margin-left: 10px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        @media (max-width: 600px) {
+            .link-box {
+                flex-direction: row; /* Ensure direction remains row */
+                align-items: center; /* Center align items */
+            }
+            .link-text {
+                margin-left: 10px; /* Adjust margin for better spacing */
+            }
+            .live-icon {
+                margin-left: 10px; /* Adjust margin for better spacing */
+            }
+        }
+ 
+
+
+
+
+
+        h1 {
+            background-color: #ff4b5c; /* Bright red color */
+            color: #ffffff;
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 5px;
+            animation: blink 5s linear infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% {
+                opacity: 1;
+            }
+            40%, 85% {
+                opacity: 0.2;
+            }
+        }
