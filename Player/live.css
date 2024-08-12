@@ -81,3 +81,99 @@
                 opacity: 0.2;
             }
         }
+
+<!--Match Code-->
+   
+     @keyframes flash {
+  0%, 100% {
+    background-color: #931800;
+    color: #fff;
+  }
+  50% {
+    background-color: #ff0000;
+    color: #fff;
+  }
+}
+
+.match-timing .live {
+  background: #931800;
+  animation: flash 1s infinite;
+}
+      
+      
+   /* Reset default margin and padding for footer */
+footer {
+  margin: 0;
+  padding: 20px;
+  color: #000;
+  text-align: center;
+}
+
+/* CSS */
+.button-1 {
+     border-radius: 5px;
+    box-sizing: border-box;
+    color: #ff0000;
+    cursor: pointer;
+    font-family: &#39;Neo Sans Arabic&#39;;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 20px;
+    opacity: 100;
+    outline: 0px solid black;
+    padding: 9px 5px;
+    margin: 0.400pc;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+   .disclaimer {
+    background: #fff3cd;
+}
+
+
+   .box-title{overflow:hidden;background:#fff;border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;-o-border-radius:5px 5px 0 0;padding:10px;border-bottom: 2px solid #ddd;}
+.nav-tabs{list-style:none;float:right}
+.nav-tabs li{float:right;margin-right:5px}
+.nav-tabs li a{display:inline-block;padding:5px 20px;background:#931800 !important;color:#fff;font-size:14px;font-weight:bold;border-radius:5px;z-index:999999;position:relative}
+.nav-tabs .yema a{background:#4267b2}
+.nav-tabs .tomat a{background:#2aa14f}
+.matchflex{display:flex;flex-direction:column;margin:0px 12px 0}
+.match-event{border:1px solid #ddd;overflow:hidden;text-align:center;background:#eceef2;margin-bottom:10px;position:relative;border-radius:5px;}
+.match-event.h{display:none}
+.match-name,.match-event.ch-end #match-hour,.match-event.ch-live #match-hour,.match-event.ch-soon #result-now,.match-event.notstart #result-now,.match-event.h,.match-event.ch-end #match-live,.match-event.d #match-live{display:none!important}
+.match-event:last-child{margin-bottom:12px}
+.matchflex{display:flex;flex-direction:column;margin:10px 10px 0}
+.match-event.ch-live{order:}
+.match-event.ch-soon{order:}
+.match-event.ch-end{order:5}
+.match-event.l{order:0}
+.match-event.l1{order:-2}
+.match-event.l2{order:-1}
+.match-event a{color:#222}
+.match-event h4{margin:30px 0;color:#444;font-size:18px}
+.first-team,.left-team,.match-time{width:33.33333333%;float:right;color:#444}
+.team-logo{float:right;width:100%}
+.left-team .team-logo{float:left}
+.team-logo img{margin:10px auto;display:flex;}
+.team-name{display:table;color:#000; font-weight: bold}
+.match-timing{margin:50px 0;color:#000;    font-weight: bold;}
+.league-logo img{margin:5px auto}
+#result-now{font-size:21px;letter-spacing:5px;margin-right:-5px;color:#444}
+#result-noww{font-size:21px;margin-right:-5px;direction:ltr}
+.match-timing .match-date,.match-timing .live:before{color:#fff;background:#263545;border-radius:2px;font-size:15px;line-height:1;display:table;margin:auto;padding:5px;}
+.match-timing .live{background:#931800}
+.match-timing .end{background:#474747}
+.match-timing .soon{background:#0f6f37}
+.match-info ul{list-style:none}
+#overlay-match{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;width:100%;opacity:0;cursor:pointer;background:rgb(0 0 0 / 60%);z-index:8}
+.match-event:hover #overlay-match{opacity:1}
+#watch-match{position:absolute;bottom:0;right:0;height:45px;margin:auto;left:0;top:0;width:45px;background:no-repeat center url(&quot;data:image/svg+xml;charset=utf8,%3Csvg aria-hidden=&#39;true&#39; role=&#39;img&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39; %3E%3Cpath fill=&#39;%23fff&#39; d=&#39;M256,0C114.617,0,0,114.615,0,256s114.617,256,256,256s256-114.615,256-256S397.383,0,256,0z M344.48,269.57l-128,80  c-2.59,1.617-5.535,2.43-8.48,2.43c-2.668,0-5.34-0.664-7.758-2.008C195.156,347.172,192,341.82,192,336V176 c0-5.82,3.156-11.172,8.242-13.992c5.086-2.836,11.305-2.664,16.238,0.422l128,80c4.676,2.93,7.52,8.055,7.52,13.57 S349.156,266.641,344.48,269.57z&#39; class=&#39;&#39;%3E%3C/path%3E%3C/svg%3E&quot;)}
+.teams-logo{float:left;width:100%}
+.teams-logo img{margin:10px auto;display:flex}
+/*=================    
+      
+
+   
+    
+
