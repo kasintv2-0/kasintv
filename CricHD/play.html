@@ -79,10 +79,10 @@
 <script>
     // Get the Custom_ID from the URL parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const customID = urlParams.get('c');
+    const customID = urlParams.get('v');
 
     // Replace (Custom_ID) in the original URL with the custom ID
-    const originalURL = `https://crichd.site/cn1/?c=${customID}`;
+    const originalURL = `https://www.youtube.com/watch?v=${customID}`;
 
     // Set the iframe source to the modified URL
     document.getElementById('player-iframe').src = originalURL;
