@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet">
+    <style>
+        /* Full-page video player */
+        .video-js {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video.js Player -->
+    <video id="live-player" class="video-js vjs-default-skin" controls></video>
+
+    <!-- Video.js Script -->
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <!-- HLS.js Script (for HLS streaming support) -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
+    <script>
+        const jsonConfigs = {
+            "1": {
+                "stream": {
+                    "autoplay": true,
+                    "url": "http://vo01.mohdtv.com:8880/live/voby1800/62516592/60006.m3u8"
+                }
+            },
+            "sctv": {
+                "stream": {
+                    "autoplay": true,
+                    "url": "https://play.gachor99.my.id:443/hometv_lite/h6NwHhGE43/9.m3u8"
+                }
+            },
+            "rcti": {
+                "stream": {
+                    "autoplay": true,
+                    "url": "https://play.gachor99.my.id:443/hometv_lite/h6NwHhGE43/10.m3u8"
+                }
+            },
+        };
+
+        // Get the player ID from the URL
+        const playerId = (new URLSearchParams(window.location.search)).get('id');
+
+        // Retrieve the configuration based on the player ID
+        const config = jsonConfigs[playerId];
+
+        if (config) {
+            // Initialize the Video.js player with the provided configuration
+            const player = videojs('live-player', {
+                autoplay: config.stream.autoplay,
+                controls: true,
+                sources: [{
+                    src: config.stream.url,
+                    type: 'application/x-mpegURL',
+                }],
+            });
+
+            // Handle HLS streaming
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(config.stream.url);
+                hls.attachMedia(player.tech_.el_);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    player.play();
+                });
+            } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
+                player.src(config.stream.url);
+                player.play();
+            } else {
+                console.error('HLS is not supported.');
+            }
+        } else {
+            console.error('Invalid player ID or configuration not found.');
+        }
+    </script>
+</body>
+</html>
