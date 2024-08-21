@@ -244,7 +244,7 @@ body {
 #player {
     width: 100%;
     position: absolute;
-    height: 100% !important;
+    height: 500px !important;
     right: 0;
     left: 0
 }
@@ -356,7 +356,7 @@ body {
     height: 0;
     text-align: center;
     color: #fff;
-    font-size: 3vw;
+    font-size: 10px;
     display: none1
 }
 
