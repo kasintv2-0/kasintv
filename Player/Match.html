@@ -3,170 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Code Generator</title>
+    <meta name="description" content=" Generate custom match codes easily with our online tool. Enter team details, logos, and match timings to get the HTML code you need.">
+    <meta name="keywords" content=" match code generator, team match code, generate match code, online match code tool">
+    <meta name="author" content="KaSin TV">
+    <meta property="og:title" content="Match Code Generator">
+    <meta property="og:description" content=" Create and customize match codes with our tool. Input team details and timings to get your match code quickly.">
+    <meta property="og:image" content="https://pc.sandipsitaula2023.com.np/favicon.png">
+    <meta property="og:url" content="https://pc.sandipsitaula2023.com.np/favicon.png">
+    <meta property="og:type" content="website">
+    <title>Match Code Generator - Create Custom Match Codes Online</title>
     <style>
-        /* General body styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
+       /* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
 
-        /* Header styling */
-        h1 {
-            text-align: center;
-            color: #444;
-            margin-bottom: 20px;
-        }
+/* Header styling */
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
 
-        /* Form container styling */
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+/* Form container styling */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        /* Input fields styling */
-        input[type="text"], 
-        input[type="date"],
-        textarea {
-            width: calc(100% - 160px);
-            max-width: 600px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 10px 0;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
+/* Input fields styling */
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+    width: calc(100% - 160px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 14px;
+    box-sizing: border-box;
+}
 
-        /* Labels for inputs */
-        label {
-            display: block;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-        }
+/* Custom date input styling */
+input[type="datetime-local"] {
+    padding: 10px 15px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding-left: 30px; /* To make room for the calendar icon */
+}
 
-        /* Button styling */
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            margin: 5px 0;
-        }
+/* Wrapper for buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 10px; /* Adds space between the buttons */
+    margin-top: 20px; /* Adds some space above the buttons */
+}
 
-        /* Button hover effect */
-        button:hover {
-            background-color: #0056b3;
-        }
+/* General button styling */
+button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
 
-        /* Textarea styling for generated code */
-        textarea.Code {
-            height: 150px;
-            resize: vertical;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #fafafa;
-        }
+button:hover {
+    background-color: #0056b3;
+}
 
-        /* Match container styling */
-        .containerMatch {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+/* Button to copy code */
+.copy-btn {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        /* Match section styling */
-        .Match {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
+.copy-btn:hover {
+    background-color: #218838;
+}
 
-        /* Team section styling */
-        .team {
-            display: flex;
-            align-items: center;
-        }
+/* Textarea styling for generated code */
+textarea.Code {
+    height: 150px;
+    resize: vertical;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
 
-        /* Image styling */
-        .Image img {
-            border-radius: 50%;
-            border: 2px solid #007bff;
-            margin-right: 10px;
-        }
+/* Match container styling */
+.containerMatch {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        /* Team name styling */
-        .name {
-            font-weight: bold;
-            color: #333;
-        }
+/* Match section styling */
+.Match {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
 
-        /* Result section styling */
-        .result {
-            text-align: center;
-        }
+/* Team section styling */
+.team {
+    display: flex;
+    align-items: center;
+}
 
-        /* Match hour styling */
-        .matchHour {
-            font-size: 18px;
-            font-weight: bold;
-            color: #007bff;
-        }
+/* Image styling */
+.Image img {
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    margin-right: 10px;
+}
 
-        /* Match date styling */
-        .matchDate {
-            font-size: 14px;
-            color: #888;
-        }
+/* Team name styling */
+.name {
+    font-weight: bold;
+    color: #333;
+}
 
-        /* Show section styling */
-        .Show {
-            text-align: right;
-            margin-top: 10px;
-        }
+/* Result section styling */
+.result {
+    text-align: center;
+}
 
-        /* Link styling within Show section */
-        .Show a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* Match hour styling */
+.matchHour {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
 
-        /* Link hover effect */
-        .Show a:hover {
-            text-decoration: underline;
-        }
+/* Match date styling */
+.matchDate {
+    font-size: 14px;
+    color: #888;
+}
 
-        /* Button to copy code */
-        .copy-btn {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
+/* Show section styling */
+.Show {
+    text-align: right;
+    margin-top: 10px;
+}
 
-        .copy-btn:hover {
-            background-color: #218838;
-        }
+/* Link styling within Show section */
+.Show a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Show a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Additional adjustments to match the style */
+input, textarea {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
     </style>
 </head>
 <body>
@@ -197,12 +245,12 @@
             <input type="text" id="matchTime" class="matchTime" placeholder="Enter Match Time">
         </div>
         <div>
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" class="startDate">
+            <label for="startDate">Start Date and Time:</label>
+            <input type="datetime-local" id="startDate" class="startDate">
         </div>
         <div>
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" class="endDate">
+            <label for="endDate">End Date and Time:</label>
+            <input type="datetime-local" id="endDate" class="endDate">
         </div>
         <button class="Get">Generate Match Code</button>
         <h2>Generated Code:</h2>
@@ -234,7 +282,7 @@
             <div class="result">
                 <div class="matchHour">${matchTime}</div>
                 <div class="score"></div>
-                <div class="matchDate" data-start="${startDate}T00:00:00" data-end="${endDate}T23:59:59"></div>
+                <div class="matchDate" data-start="${startDate}" data-end="${endDate}"></div>
             </div>
             <div class="team">
                 <div class="Image">
