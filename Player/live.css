@@ -119,6 +119,11 @@
     background-color: #45a049; /* Darker green on hover */
 }
 
+@media (max-width: 600px) {
+    ul.ItemsList li.item {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
 
 
 
