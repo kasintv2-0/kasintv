@@ -1,0 +1,65 @@
+
+/* List styling */
+.ItemsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ItemsList .item {
+    background-color: #e0f0ff; /* Light blue for list items */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%; /* Adjust width to control grid layout */
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Inner item box for image and name */
+.item-box {
+    display: flex;
+    align-items: center;
+}
+
+.item-image img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff; /* White background for logos */
+}
+
+/* League name styling */
+.item-name a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Standings button styling */
+.item-url a {
+    background-color: #4CAF50; /* Green background */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.item-url a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+@media (max-width: 600px) {
+    ul.ItemsList li.item {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
