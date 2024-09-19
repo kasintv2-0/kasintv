@@ -1,5 +1,4 @@
- <script src='https://cdn.jsdelivr.net/gh/kasintv2-0/kasintv/Player/click.js'></script>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,45 +35,42 @@
     </video>
 </div>
 
-
 <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-hls-source-selector@1.0.1/dist/videojs-http-source-selector.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-quality-levels@2.0.6/dist/videojs-contrib-quality-levels.js"></script>
 <script src="https://unpkg.com/@videojs/http-streaming@1.2.1/dist/videojs-http-streaming.js"></script>
 <script>
+    // Initialize the Video.js player
+    const player = videojs('video');
+
     // Function to play the selected channel
     function playChannel(url) {
-        const player = videojs('video');
         player.src({ type: 'application/x-mpegURL', src: url });
         player.play();
     }
 
-    // Initialize video player
-    const player = videojs('video');
-    
-    // Add event listeners for player events
-    player.on(['loadstart', 'play', 'playing', 'firstplay', 'pause', 'ended', 'adplay', 'adplaying', 'adfirstplay', 'adpause', 'adended', 'contentplay', 'contentplaying', 'contentfirstplay', 'contentpause', 'contentended', 'contentupdate'], function(e) {
-        console.warn('VIDEOJS player event: ', e.type);
-    });
-
-    // Enable HTTP source selector
-    player.httpSourceSelector();
-
-    // Function to get query parameters from URL 
-    function getQueryParams(param) { 
-        let urlParams = new URLSearchParams(window.location.search); 
-        return urlParams.get(param); 
-    } 
-
     // Get the 'id' parameter from the URL and set the video source
-    var sourceUrl = getQueryParams('id'); 
+    function getQueryParams(param) {
+        let urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-    // If the 'id' parameter is found, use it as the video source
-    if (sourceUrl) { 
-        playChannel(sourceUrl); 
+    const sourceUrl = getQueryParams('id'); // Extract 'id' parameter from the URL
+
+    if (sourceUrl) {
+        // If the 'id' parameter is found, use it as the video source
+        playChannel(sourceUrl);
     } else {
         console.warn('No video source URL found in the query parameters.');
     }
+
+    // Add event listeners for player events
+    player.on(['loadstart', 'play', 'playing', 'firstplay', 'pause', 'ended'], function(e) {
+        console.warn('VIDEOJS player event: ', e.type);
+    });
+
+    // Enable HTTP source selector plugin
+    player.httpSourceSelector();
 </script>
 
 </body>
