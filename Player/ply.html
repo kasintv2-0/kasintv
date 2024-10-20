@@ -1,0 +1,114 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <style>
+    html {
+      font-family: Poppins;
+      background: #000;
+      margin: 0;
+      padding: 0
+    }
+
+    .plyr__video-wrapper::after {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+      content: '';
+      height: 55px;
+      width: 80px;
+      background: url('https://iili.io/HO3nLba.png') no-repeat;
+      background-size: 80px, auto, auto;
+    }
+
+@font-face {
+      font-family: "saFont";
+      src: url("//cdn.plyr.io/static/fonts/gordita-medium.woff2") format("woff");
+    }
+
+/* Hide progress bar */
+.plyr__progress {
+  display: none;
+}
+
+/* Hide progress container */
+.plyr__progress_container {
+  display: none;
+}
+
+/* Add "Live" text overlay */
+.plyr__controls__item.plyr__menu::before {
+  content: 'LIVE';
+  font-weight: 900;
+  margin-left: 10px;
+  color: #DF0000; /* Add color to make it visible */
+  padding-top: 4px;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <video autoplay="" controls="" crossorigin="" poster="" playsinline="" style="--plyr-color-main: #28B463;" src="">
+    <source id="m3u8-url" src="" type="application/x-mpegURL">
+
+  </video>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var maxvalue = urlParams.get('tv');
+ //  var maxvalue = "https://docs.evostream.com/sample_content/assets/hls-sintel-abr3/playlist.m3u8";
+
+    document.getElementById("m3u8-url").setAttribute("src", maxvalue);
+  </script>
+
+  <script>
+    setTimeout(videovisible, 1000)
+
+    function videovisible() {
+      document.getElementById('loading').style.display = 'none'
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const e = document.querySelector("video"),
+        n = e.getElementsByTagName("source")[0].src,
+        o = {};
+      if (Hls.isSupported()) {
+        var config = {
+          maxMaxBufferLength: 100,
+        };
+        const t = new Hls(config);
+        t.loadSource(n), t.on(Hls.Events.MANIFEST_PARSED, function(n, l) {
+          const s = t.levels.map(e => e.height);
+
+          o.controls = ['play', 'play-large', 'settings', 'pip', 'fullscreen']
+
+          o.quality = {
+            default: s[0],
+            options: s,
+            forced: !0,
+            onChange: e => (function(e) {
+              window.hls.levels.forEach((n, o) => {
+                n.height === e && (window.hls.currentLevel = o)
+              })
+            })(e)
+          };
+          new Plyr(e, o)
+        }), t.attachMedia(e), window.hls = t
+      } else {
+        new Plyr(e, o)
+      }
+    });
+  </script>
+</html>
