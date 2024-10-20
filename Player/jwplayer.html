@@ -1,53 +1,248 @@
-<?php 
- 
-// © mgsportstv.com 
-$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''; 
- 
-// Define an array of allowed referer domains 
-$allowedReferers = array( 
-    'tv.mgsportstv.com', 
-   
-); 
- 
-// Check if the referer is in the allowed referer list 
-$refererAllowed = false; 
- 
- 
-$url = $_GET["c"]; 
- 
-$response = $url; 
- 
-; 
- 
-// Check if there was a redirect 
- 
-    $redirectUrl = $response; 
-    $playerCode = <<<EOD 
-    <body> 
-  <script src="https://use.fontawesome.com/20603b964f.js"></script> 
-      <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script> 
-  <script type="text/javascript">jwplayer.key = 'ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=';</script><div id="myElement"></div><script type="text/javascript"> 
-         jwplayer("myElement").setup({ 
-     file: "$redirectUrl", 
-          type: "hls", 
-          
-          hlshtml: true, 
-                playbackRateControls: [0.75, 1, 1.25, 1.5], title: 'Watching Live mgsportstv.com', width: "100%", height: "100%", aspectratio: '16:9',repeat: 'true', autostart: true, primary: 'html5', setFullscreen: true, controls: true, showCode: true, responsive: true, 
- 
-          abouttext: "mgsportstv.com", aboutlink: "", logo: 
- 
-          { 
- 
-            file: "https://tv.mgsportstv.com/wp-content/uploads/2024/02/cropped-4104ef25-fe83-4b38-8b38-554271ceddb1.jpeg", link: "tv.mgsportstv.com", position: "top-left", margin: "5", hide: true 
- 
-          }, skin: { 
- 
-            name: "glow", active: "red", inactive: "", background: "" 
- 
-          } 
- 
-        }); 
-     </script> 
-  </div> 
-         
-    </body> 
+
+<html>
+<head>
+
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+<script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
+<script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script></script>
+</script>
+<style>
+  :root {
+--plyr-color-main: #00FF00;
+}
+html {
+  font-family: Poppins;
+  background: #000;
+  margin: 0;
+  padding: 0
+}
+
+.loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+    }
+    
+    .loading-text {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+    }
+    
+    .loading-text span {
+        display: inline-block;
+        margin: 0 5px;
+        color: #FFFF00;
+        font-family: 'Quattrocento Sans', sans-serif;
+    }
+    
+    .loading-text span:nth-child(1) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(2) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.2s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(3) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.4s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(4) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.6s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(5) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.8s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(6) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(7) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.2s infinite linear alternate;
+    }
+    .loading-text span:nth-child(8) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.4s infinite linear alternate;
+    }
+    .loading-text span:nth-child(9) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.6s infinite linear alternate;
+    }
+    .loading-text span:nth-child(10) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.8s infinite linear alternate;
+    }
+    .loading-text span:nth-child(11) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 2s infinite linear alternate;
+    }
+    .loading-text span:nth-child(12) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 2.2s infinite linear alternate;
+    }
+    @keyframes blur-text {
+        0% {
+            filter: blur(0px);
+        }
+        100% {
+            filter: blur(4px);
+        }
+    }
+    .plyr__video-wrapper::before {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+        content: '';
+        height: 45px;
+        width: 45px;
+        background: url('') no-repeat;
+        background-size: 35px auto, auto;
+    }
+    .live-count {
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 2;
+    display: block;
+}
+.blink_me {
+    padding: 0 5px;
+    margin-right: 10px;
+    background: #ff0000;
+    border-radius: 5px;
+    color: #fff;
+    height: 20px;
+    line-height: 20px;
+    background-size: cover;
+    animation: blinker 1.9s ease-out infinite;
+    -webkit-animation: blinker 1.9s ease-out infinite;
+    float: left;
+}
+.blink {
+                animation: blinker 1.1s linear infinite;
+                color: red;
+                font-family: sans-serif;
+            }
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+
+</style>
+</head>
+<body>
+<div id="loading" class="loading">
+<div class="loading-text">
+<span class="loading-text-words" style="color:#FF0000;">L</span>
+<span class="loading-text-words" style="color:#FF0000;">O</span>
+<span class="loading-text-words" style="color:#FF0000;">D</span>
+<span class="loading-text-words" style="color:#FF0000;">I</span>
+<span class="loading-text-words" style="color:#FF0000;">N</span>
+<span class="loading-text-words" style="color:#FF0000;">G</span>
+<span class="loading-text-words" style="color:#FF0000;">.</span>
+<span class="loading-text-words" style="color:#FF0000;">.</span>
+<span class="loading-text-words" style="color:#FF0000;">.</span>
+
+</div>
+</div>
+
+
+<div id="logo-container" style="position: absolute; top: 5px; left: 5px;">
+<div class="live-count" id="live-count"><span class="blink_me">Live</span><span class="count-content"></span></div>
+</div>
+
+
+<div id="myElement"></div>
+  <script type="text/javascript">
+    jwplayer("myElement").setup({
+      width: '100%',
+      height:'100%',
+      file : "https://crichd-live.top/live/tsports/file.php?id=https://live-cdn.tsports.com/live-02/index.m3u8",
+      autostart: "true",
+      fullscreen: true,
+      controls: true,
+      pipIcon: "enabled",
+      volume: "100",
+      preload: "auto",
+      aspectratio: "16:9",
+      stretching: "exactfit",
+      aboutlink: "/#",
+      logo: {"file":"","margin":"5px", "position":"top-left","link":""},
+      captions: {color: '#ffb800',fontSize: 25,backgroundOpacity: 0},
+      type: "hls",
+      primary: "html5",
+      hlshtml: true,
+    })
+  </script>
+</div>
+
+<script>
+setTimeout(videovisible, 1000)
+
+function videovisible() {
+    document.getElementById('loading').style.display = 'none'
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const e = document.querySelector("video"),
+        n = e.getElementsByTagName("source")[0].src,
+        o = {};
+    if (Hls.isSupported()) {
+        var config = {
+            maxMaxBufferLength: 100,
+        };
+        const t = new Hls(config);
+        t.loadSource(n), t.on(Hls.Events.MANIFEST_PARSED, function(n, l) {
+            const s = t.levels.map(e => e.height);
+            o.quality = {
+                default: s[0],
+                options: s,
+                forced: !0,
+                onChange: e => (function(e) {
+                    window.hls.levels.forEach((n, o) => {
+                        n.height === e && (window.hls.currentLevel = o)
+                    })
+                })(e)
+            };
+            new Plyr(e, o)
+        }), t.attachMedia(e), window.hls = t
+    } else {
+        new Plyr(e, o)
+    }
+});
+</script>
+
+
+</body>
+</html>
+
