@@ -49,10 +49,10 @@
         player.play();
     }
 
-    // Get the 'id' parameter from the URL and set the video source
+    // Get the 'id' parameter from the URL and decode it
     function getQueryParams(param) {
         let urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
+        return decodeURIComponent(urlParams.get(param)); // Decode the parameter to get the full URL
     }
 
     const sourceUrl = getQueryParams('id'); // Extract 'id' parameter from the URL
