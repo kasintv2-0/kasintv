@@ -22,7 +22,76 @@
         }
     </style>
 
-    
+    <style>
+  .tg-banner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #1da1f2, #0077b5);
+    border-radius: 12px;
+    padding: 9px 18px;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 1s ease, pulse 2s ease-in-out infinite;
+  }
+
+  /* Hover effect */
+  .tg-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Image styling */
+  .tg-banner img {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    border-radius: 20%;
+    border: 1px solid white;
+  }
+
+  /* Text styling with blink animation */
+  .tg-banner span {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    animation: blink 1s infinite;
+  }
+
+  /* Slide-in animation */
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  /* Blink animation */
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
 <script disable-devtool-auto='' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
  <div id="logo">
         <a href="https://t.me/kasintv">
@@ -32,6 +101,16 @@
 <div id="player" style="height: 100%; width: 100%;"></div> 
 </head>   
 <body>  
+
+
+
+<a href="https://t.me/kasintv" class="tg-banner">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="Telegram Logo">
+  <span>Join with us! @kasintv</span>
+</a>
+
+
+    
  <script> 
         // Function to get query parameters from URL 
         function getQueryParams(param) { 
